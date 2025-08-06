@@ -1,0 +1,26 @@
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import UserLayout from "../layouts/UserLayout";
+import Home from "../pages/user/home/Home";
+import Album from "../pages/user/album/Album";
+import Services from "../pages/user/services/Services";
+import Pricing from "../pages/user/pricing/Pricing";
+import About from "../pages/user/about/About";
+import Contact from "../pages/user/contact/Contact";
+
+const UserRoutes: React.FC = () => {
+  return (
+    <Routes>
+      <Route path="/" element={<UserLayout />}>
+        <Route index element={<Home />} />
+        <Route path="album" element={<Album />} />
+        <Route path="services" element={<Services />} />
+        <Route path="pricing" element={<Pricing />} />
+        <Route path="about" element={<About />} />
+        <Route path="contact" element={<Contact />} />
+      </Route>
+    </Routes>
+  );
+};
+
+export default UserRoutes;
