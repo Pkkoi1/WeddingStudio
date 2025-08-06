@@ -1,10 +1,12 @@
 import React from "react";
 import Banner from "../../../components/user/banner/Banner";
+import MainServices from "../../../components/user/service/MainService";
 
 const Home: React.FC = () => {
   return (
     <div className="container mx-auto px-4 ">
       <Banner></Banner>
+      <MainServices></MainServices>
       <h1 className="text-4xl font-bold text-center mb-8">
         Chào mừng đến với Wedding Studio
       </h1>
