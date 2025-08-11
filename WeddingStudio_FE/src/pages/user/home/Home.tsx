@@ -4,6 +4,7 @@ import MainServices from "../../../components/user/service/MainService";
 import MainAlbum from "../../../components/user/album/MainAlbum";
 import VideoGraphic from "../../../components/user/video_graphic/VideoGraphic";
 import AboutStudio from "../../../components/user/about/AboutStudio";
+import PricingTable from "../../../components/user/pricing/PricingTable";
 
 const Home: React.FC = () => {
   return (
@@ -12,6 +13,7 @@ const Home: React.FC = () => {
       <MainServices></MainServices>
       <MainAlbum></MainAlbum>
       <VideoGraphic></VideoGraphic>
+      <PricingTable></PricingTable>
       <AboutStudio></AboutStudio>
     </div>
   );
