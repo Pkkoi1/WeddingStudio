@@ -15,8 +15,10 @@ const authRoutes = require("./src/routes/auth");
 const userRoutes = require("./src/routes/users");
 const serviceRoutes = require("./src/routes/services");
 const albumRoutes = require("./src/routes/albums");
+const albumCoverRoutes = require("./src/routes/albumCovers");
 const bookingRoutes = require("./src/routes/bookings");
 const contactRoutes = require("./src/routes/contacts");
+const locationRoutes = require("./src/routes/locations");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -44,8 +46,10 @@ app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/services", serviceRoutes);
 app.use("/api/albums", albumRoutes);
+app.use("/api/album-covers", albumCoverRoutes);
 app.use("/api/bookings", bookingRoutes);
 app.use("/api/contacts", contactRoutes);
+app.use("/api/locations", locationRoutes);
 
 // Health check
 app.get("/api/health", (req, res) => {

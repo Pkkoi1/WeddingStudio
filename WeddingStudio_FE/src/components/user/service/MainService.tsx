@@ -1,22 +1,25 @@
-import { Video, Shirt, UserRound, Heart } from "lucide-react";
+import { Heart } from "lucide-react";
 import ServiceItem from "./ServiceItem";
+import service1 from "../../../../public/service_4.webp";
+import service2 from "../../../../public/service_5.webp";
+import service3 from "../../../../public/service_6.webp";
 
-export default function MainServices() {
+const MainServices: React.FC = () => {
   const services = [
     {
-      icon: Video,
+      icon: service1,
       title: "Quay phóng sự cưới",
       description:
         "Một bức ảnh hơn ngàn lời nói - 1 đoạn Video hơn ngàn bức ảnh. Xem những Clip cực đẹp với thiết bị đẳng cấp tại Wedding studio.",
     },
     {
-      icon: Shirt,
+      icon: service2,
       title: "Thuê trang phục cưới",
       description:
         "Với Wedding studio, các bạn có thể lựa chọn cho mình một chiếc áo cưới lộng lẫy, hợp thời trang, quyến rũ nhất trong ngày cưới.",
     },
     {
-      icon: UserRound,
+      icon: service3,
       title: "Trang điểm cô dâu",
       description:
         "Chuyên viên Makeup của chúng tôi có trên 5 năm kinh nghiệm, với phong cách trang điểm đẳng cấp, phong cách tự nhiên, sang trọng...",
@@ -57,4 +60,6 @@ export default function MainServices() {
       </div>
     </section>
   );
-}
+};
+
+export default MainServices;
