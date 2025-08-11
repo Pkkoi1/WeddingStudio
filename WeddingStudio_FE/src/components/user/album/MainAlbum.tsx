@@ -25,7 +25,7 @@ const MainAlbum: React.FC = () => {
   }, []);
 
   return (
-    <section className="container mx-auto px-4 py-16 bg-gray-50">
+    <section className="flex flex-col items-center justify-center container mx-auto py-8 border-t-[0.5px] border-gray-200 px-[10%] bg-white">
       <div className="text-center mb-12">
         <h2 className="text-4xl font-bold text-gray-800 mb-4 font-amatic">
           ALBUM TIÊU BIỂU
@@ -49,7 +49,7 @@ const MainAlbum: React.FC = () => {
               key={album._id}
               id={album._id}
               title={album.title}
-              location={album.location || "Không xác định"}
+              location={album.location?.city || "Không xác định"}
               imageUrl={album.coverImage}
               imageAlt={album.description || "Album cover"}
             />

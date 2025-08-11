@@ -1,7 +1,14 @@
+export interface Location {
+  _id: string;
+  name: string;
+  city: string;
+  category: string;
+}
+
 export interface AlbumCover {
   _id: string;
   title: string; // Tiêu đề bìa album
-  location: string; // ID địa điểm chụp
+  location: Location | null; // Địa điểm chụp (có thể null)
   coverImage: string; // Ảnh bìa đại diện
   description?: string; // Mô tả về bộ sưu tập này
   albumCount: number; // Số lượng album trong bìa này

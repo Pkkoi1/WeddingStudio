@@ -2,13 +2,17 @@ import React from "react";
 import Banner from "../../../components/user/banner/Banner";
 import MainServices from "../../../components/user/service/MainService";
 import MainAlbum from "../../../components/user/album/MainAlbum";
+import VideoGraphic from "../../../components/user/video_graphic/VideoGraphic";
+import AboutStudio from "../../../components/user/about/AboutStudio";
 
 const Home: React.FC = () => {
   return (
-    <div className="container mx-auto px-4 ">
+    <div className="container ">
       <Banner></Banner>
       <MainServices></MainServices>
       <MainAlbum></MainAlbum>
+      <VideoGraphic></VideoGraphic>
+      <AboutStudio></AboutStudio>
     </div>
   );
 };
