@@ -52,7 +52,7 @@ export default function Banner() {
   }, [currentSlide, nextSlide]); // Re-run effect if currentSlide changes to reset timer
 
   return (
-    <section className="relative w-full h-[600px] overflow-hidden">
+    <section className="relative w-full h-[600px] overflow-hidden px-[10%] bg-white">
       {bannerImages.map((image, index) => (
         <img
           key={image.src}

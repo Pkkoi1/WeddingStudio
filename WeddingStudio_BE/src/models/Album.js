@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 /**
  * @swagger
@@ -33,6 +33,9 @@ const mongoose = require('mongoose');
  *         category:
  *           type: string
  *           enum: [wedding, prewedding, engagement, portrait]
+ *         location:
+ *           type: string
+ *           description: Location ID where photos were taken
  *         tags:
  *           type: array
  *           items:
@@ -48,45 +51,57 @@ const mongoose = require('mongoose');
  *           format: date-time
  */
 
-const albumSchema = new mongoose.Schema({
-  title: {
-    type: String,
-    required: true,
-    trim: true
-  },
-  description: {
-    type: String,
-    trim: true
-  },
-  coverImage: {
-    type: String,
-    required: true
-  },
-  images: [{
-    url: {
+const albumSchema = new mongoose.Schema(
+  {
+    title: {
       type: String,
-      required: true
+      required: true,
+      trim: true,
     },
-    caption: {
+    description: {
       type: String,
-      trim: true
-    }
-  }],
-  category: {
-    type: String,
-    enum: ['wedding', 'prewedding', 'engagement', 'portrait'],
-    required: true
+      trim: true,
+    },
+    coverImage: {
+      type: String,
+      required: true,
+    },
+    images: [
+      {
+        url: {
+          type: String,
+          required: true,
+        },
+        caption: {
+          type: String,
+          trim: true,
+        },
+      },
+    ],
+    category: {
+      type: String,
+      enum: ["wedding", "prewedding", "engagement", "portrait"],
+      required: true,
+    },
+    location: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Location",
+      required: true,
+    },
+    tags: [
+      {
+        type: String,
+        trim: true,
+      },
+    ],
+    isPublic: {
+      type: Boolean,
+      default: true,
+    },
   },
-  tags: [{
-    type: String,
-    trim: true
-  }],
-  isPublic: {
-    type: Boolean,
-    default: true
+  {
+    timestamps: true,
   }
-}, {
-  timestamps: true
-});
+);
 
-module.exports = mongoose.model('Album', albumSchema);
+module.exports = mongoose.model("Album", albumSchema);

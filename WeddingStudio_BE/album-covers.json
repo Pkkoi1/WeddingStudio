@@ -1,0 +1,57 @@
+[
+  {
+    "_id": "60f7b3b3b3b3b3b3b3b3b3f1",
+    "title": "ALBUM TẠI HÀ NỘI",
+    "location": "60f7b3b3b3b3b3b3b3b3b3e1",
+    "coverImage": "https://images.unsplash.com/photo-1540611025311-01956c5de18a?w=800&h=600&fit=crop",
+    "description": "Bộ sưu tập các album cưới được chụp tại các địa điểm nổi tiếng ở Hà Nội",
+    "albumCount": 0,
+    "isActive": true,
+    "createdAt": "2024-02-01T08:00:00.000Z",
+    "updatedAt": "2024-02-01T08:00:00.000Z"
+  },
+  {
+    "_id": "60f7b3b3b3b3b3b3b3b3b3f2",
+    "title": "ALBUM TẠI ĐÀ LẠT",
+    "location": "60f7b3b3b3b3b3b3b3b3b3e2",
+    "coverImage": "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=800&h=600&fit=crop",
+    "description": "Bộ sưu tập các album cưới lãng mạn giữa thiên nhiên Đà Lạt",
+    "albumCount": 0,
+    "isActive": true,
+    "createdAt": "2024-02-01T08:00:00.000Z",
+    "updatedAt": "2024-02-01T08:00:00.000Z"
+  },
+  {
+    "_id": "60f7b3b3b3b3b3b3b3b3b3f3",
+    "title": "ALBUM TẠI BIỂN",
+    "location": "60f7b3b3b3b3b3b3b3b3b3e3",
+    "coverImage": "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=800&h=600&fit=crop",
+    "description": "Bộ sưu tập các album cưới bãi biển với hoàng hôn lãng mạn",
+    "albumCount": 0,
+    "isActive": true,
+    "createdAt": "2024-02-01T08:00:00.000Z",
+    "updatedAt": "2024-02-01T08:00:00.000Z"
+  },
+  {
+    "_id": "60f7b3b3b3b3b3b3b3b3b3f4",
+    "title": "ALBUM TẠI SINGAPORE",
+    "location": "60f7b3b3b3b3b3b3b3b3b3e7",
+    "coverImage": "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800&h=600&fit=crop",
+    "description": "Bộ sưu tập các album cưới tại Singapore hiện đại và sang trọng",
+    "albumCount": 0,
+    "isActive": true,
+    "createdAt": "2024-02-01T08:00:00.000Z",
+    "updatedAt": "2024-02-01T08:00:00.000Z"
+  },
+  {
+    "_id": "60f7b3b3b3b3b3b3b3b3b3f5",
+    "title": "ALBUM TRONG STUDIO",
+    "location": "60f7b3b3b3b3b3b3b3b3b3e6",
+    "coverImage": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop",
+    "description": "Bộ sưu tập các album chân dung và ảnh cưới trong studio chuyên nghiệp",
+    "albumCount": 0,
+    "isActive": true,
+    "createdAt": "2024-02-01T08:00:00.000Z",
+    "updatedAt": "2024-02-01T08:00:00.000Z"
+  }
+]

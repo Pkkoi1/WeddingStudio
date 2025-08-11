@@ -1,0 +1,98 @@
+[
+  {
+    "_id": { "$oid": "60f7b3b3b3b3b3b3b3b3b3e1" },
+    "name": "Hồ Gươm",
+    "city": "Hà Nội",
+    "category": "historical",
+    "images": [
+      "https://images.unsplash.com/photo-1540611025311-01956c5de18a?w=800&h=600&fit=crop"
+    ],
+    "isActive": true,
+    "createdAt": "2024-01-15T08:00:00.000Z",
+    "updatedAt": "2024-01-15T08:00:00.000Z"
+  },
+  {
+    "_id": { "$oid": "60f7b3b3b3b3b3b3b3b3b3e2" },
+    "name": "Đồi Chè Cầu Đất",
+    "city": "Đà Lạt",
+    "category": "mountain",
+    "images": [
+      "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=800&h=600&fit=crop"
+    ],
+    "isActive": true,
+    "createdAt": "2024-01-15T08:00:00.000Z",
+    "updatedAt": "2024-01-15T08:00:00.000Z"
+  },
+  {
+    "_id": { "$oid": "60f7b3b3b3b3b3b3b3b3b3e3" },
+    "name": "Bãi Biển Vũng Tàu",
+    "city": "Vũng Tàu",
+    "category": "beach",
+    "images": [
+      "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=800&h=600&fit=crop"
+    ],
+    "isActive": true,
+    "createdAt": "2024-01-15T08:00:00.000Z",
+    "updatedAt": "2024-01-15T08:00:00.000Z"
+  },
+  {
+    "_id": { "$oid": "60f7b3b3b3b3b3b3b3b3b3e4" },
+    "name": "Nhà Thờ Đức Bà",
+    "city": "TP.HCM",
+    "category": "church",
+    "images": [
+      "https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?w=800&h=600&fit=crop"
+    ],
+    "isActive": true,
+    "createdAt": "2024-01-15T08:00:00.000Z",
+    "updatedAt": "2024-01-15T08:00:00.000Z"
+  },
+  {
+    "_id": { "$oid": "60f7b3b3b3b3b3b3b3b3b3e5" },
+    "name": "Vườn Hoa Đà Lạt",
+    "city": "Đà Lạt",
+    "category": "garden",
+    "images": [
+      "https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?w=800&h=600&fit=crop"
+    ],
+    "isActive": true,
+    "createdAt": "2024-01-15T08:00:00.000Z",
+    "updatedAt": "2024-01-15T08:00:00.000Z"
+  },
+  {
+    "_id": { "$oid": "60f7b3b3b3b3b3b3b3b3b3e6" },
+    "name": "Studio Chuyên Nghiệp",
+    "city": "Hà Nội",
+    "category": "indoor",
+    "images": [
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop"
+    ],
+    "isActive": true,
+    "createdAt": "2024-01-15T08:00:00.000Z",
+    "updatedAt": "2024-01-15T08:00:00.000Z"
+  },
+  {
+    "_id": { "$oid": "60f7b3b3b3b3b3b3b3b3b3e7" },
+    "name": "Marina Bay",
+    "city": "Singapore",
+    "category": "urban",
+    "images": [
+      "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800&h=600&fit=crop"
+    ],
+    "isActive": true,
+    "createdAt": "2024-01-15T08:00:00.000Z",
+    "updatedAt": "2024-01-15T08:00:00.000Z"
+  },
+  {
+    "_id": { "$oid": "60f7b3b3b3b3b3b3b3b3b3e8" },
+    "name": "Cầu Long Biên",
+    "city": "Hà Nội",
+    "category": "historical",
+    "images": [
+      "https://images.unsplash.com/photo-1590736969955-71cc94901144?w=800&h=600&fit=crop"
+    ],
+    "isActive": true,
+    "createdAt": "2024-01-15T08:00:00.000Z",
+    "updatedAt": "2024-01-15T08:00:00.000Z"
+  }
+]
