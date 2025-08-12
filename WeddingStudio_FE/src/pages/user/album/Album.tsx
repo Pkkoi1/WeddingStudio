@@ -1,20 +1,17 @@
 import React from "react";
+import Breadcrumb from "../../../components/common/Breadcrumb";
+import MainAlbum from "../../../components/user/album/MainAlbum";
 
 const Album: React.FC = () => {
+  const breadcrumbItems = [
+    { label: "Trang chủ", href: "/" },
+    { label: "Tất cả sản phẩm" },
+  ];
+
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold text-center mb-8">ALBUM ẢNH CƯỚI</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {/* Placeholder cho album ảnh */}
-        {[1, 2, 3, 4, 5, 6].map((item) => (
-          <div
-            key={item}
-            className="bg-gray-200 aspect-square rounded-lg flex items-center justify-center"
-          >
-            <span className="text-gray-500">Album {item}</span>
-          </div>
-        ))}
-      </div>
+    <div className="container w-screen">
+      <Breadcrumb items={breadcrumbItems} />
+      <MainAlbum />
     </div>
   );
 };

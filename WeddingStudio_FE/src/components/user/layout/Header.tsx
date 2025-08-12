@@ -6,8 +6,8 @@ export default function Header() {
   return (
     <header className="w-full bg-white shadow-sm fixed top-0 left-0 z-50 px-[10%]">
       {/* Main Navigation */}
-      <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <ul className="flex space-x-6 text-lg font-medium text-gray-700">
+      <nav className="container mx-auto  py-4 flex justify-between items-center">
+        <ul className="flex space-x-6 text-sm font-medium text-gray-700">
           <li>
             <Link to="/album" className="hover:text-gray-900">
               ALBUM

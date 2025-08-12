@@ -5,6 +5,8 @@ import MainAlbum from "../../../components/user/album/MainAlbum";
 import VideoGraphic from "../../../components/user/video_graphic/VideoGraphic";
 import AboutStudio from "../../../components/user/about/AboutStudio";
 import PricingTable from "../../../components/user/pricing/PricingTable";
+import ContactMap from "../../../components/user/contact/ContactMap";
+import ScrollToTopButton from "../../../components/common/ScrollToTopButton";
 
 const Home: React.FC = () => {
   return (
@@ -15,6 +17,8 @@ const Home: React.FC = () => {
       <VideoGraphic></VideoGraphic>
       <PricingTable></PricingTable>
       <AboutStudio></AboutStudio>
+      <ContactMap></ContactMap>
+      <ScrollToTopButton />
     </div>
   );
 };

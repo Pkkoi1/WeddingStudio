@@ -70,6 +70,7 @@ export default function VideoGraphic() {
           <Heart className="h-6 w-6 fill-current" />
         </div>
       </div>
+
     </section>
   );
 }
