@@ -22,11 +22,11 @@ export const fetchNewsById = async (id: string): Promise<News> => {
 };
 
 export const fetchNewsByService = async (
-  serviceId: string
+  serviceId: string | null
 ): Promise<News[]> => {
   try {
-    const response = await NewsAPI.getNewsByService(serviceId);
-    return response.data;
+    const response = await NewsAPI.getNewsByService(serviceId || "null"); // Default to an empty string if serviceId is null
+    return response.data || []; // Return an empty array if the response is null
   } catch (error) {
     console.error(`Error fetching news for service ${serviceId}:`, error);
     throw error;

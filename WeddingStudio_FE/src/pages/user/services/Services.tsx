@@ -1,33 +1,33 @@
 import React from "react";
+import NewsSection from "../../../components/user/news/NewsSection";
+import SidebarNav from "../../../components/common/SidebarNav";
+
+const serviceItems = [
+  { label: "Album", href: "/album" },
+  { label: "Dịch vụ", href: "/dich-vu", hasDropdown: true },
+  { label: "Bảng giá", href: "/bang-gia" },
+  { label: "Giới thiệu", href: "/gioi-thieu" },
+  { label: "Liên hệ", href: "/lien-he" },
+];
+
+const galleryItems = [
+  { label: "Album", href: "/album" },
+  { label: "Dịch vụ", href: "/dich-vu", hasDropdown: true },
+  { label: "Bảng giá", href: "/bang-gia" },
+  { label: "Giới thiệu", href: "/gioi-thieu" },
+];
 
 const Services: React.FC = () => {
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold text-center mb-8">DỊCH VỤ</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div className="bg-white p-6 rounded-lg shadow-md">
-          <h3 className="text-xl font-semibold mb-4">Chụp ảnh cưới Studio</h3>
-          <p className="text-gray-600 mb-4">
-            Chụp ảnh cưới trong studio với nhiều concept đa dạng
-          </p>
-          <ul className="list-disc list-inside text-gray-600">
-            <li>Makeup và trang điểm chuyên nghiệp</li>
-            <li>Trang phục cưới cao cấp</li>
-            <li>Nhiều bối cảnh đẹp</li>
-          </ul>
+    <div className="container w-screen">
+      <div className="flex flex-col lg:flex-row gap-8 mt-8 bg-white px-[10%] py-[2%]">
+        <div className="lg:w-1/4">
+          <SidebarNav title="DỊCH VỤ" items={serviceItems} />
+          <SidebarNav title="THƯ VIỆN" items={galleryItems} />
         </div>
-        <div className="bg-white p-6 rounded-lg shadow-md">
-          <h3 className="text-xl font-semibold mb-4">
-            Chụp ảnh cưới ngoại cảnh
-          </h3>
-          <p className="text-gray-600 mb-4">
-            Chụp ảnh cưới tại các địa điểm ngoại cảnh đẹp
-          </p>
-          <ul className="list-disc list-inside text-gray-600">
-            <li>Nhiều địa điểm đẹp</li>
-            <li>Ekip chuyên nghiệp</li>
-            <li>Chất lượng ảnh cao</li>
-          </ul>
+
+        <div className="lg:w-3/4">
+          <NewsSection />
         </div>
       </div>
     </div>

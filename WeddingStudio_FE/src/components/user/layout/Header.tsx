@@ -58,7 +58,7 @@ export default function Header() {
             onMouseEnter={() => setIsDropdownOpen(true)}
             onMouseLeave={() => setIsDropdownOpen(false)}
           >
-            <Link to="#" className="hover:text-gray-900 flex items-center">
+            <Link to="/services" className="hover:text-gray-900 flex items-center">
               DỊCH VỤ <span className="text-xs ml-1">▼</span>
             </Link>
 

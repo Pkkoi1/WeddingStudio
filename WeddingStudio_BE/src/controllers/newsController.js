@@ -1,10 +1,20 @@
 const News = require("../models/News");
 
-// Lấy danh sách news theo serviceId
+const mongoose = require("mongoose");
+// Lấy danh sách news theo serviceId (hoặc service=null nếu không truyền serviceId)
 exports.getNewsByService = async (req, res) => {
   try {
     const { serviceId } = req.params;
-    const news = await News.find({ service: serviceId })
+    let query = {};
+    if (serviceId === undefined || serviceId === null || serviceId === "null") {
+      query.service = null;
+    } else {
+      if (!mongoose.Types.ObjectId.isValid(serviceId)) {
+        return res.status(400).json({ message: "Invalid serviceId" });
+      }
+      query.service = serviceId;
+    }
+    const news = await News.find(query)
       .populate({ path: "admin" })
       .populate({ path: "location" })
       .populate({ path: "service" });
@@ -12,7 +22,7 @@ exports.getNewsByService = async (req, res) => {
       success: true,
       data: news,
     });
-  } catch (err) {
+  } catch (err) {z
     res.status(500).json({ message: err.message });
   }
 };

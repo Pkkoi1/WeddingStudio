@@ -1,24 +1,25 @@
+const express = require("express");
+const router = express.Router();
+const newsController = require("../controllers/newsController");
+
 /**
  * @swagger
  * /api/news/service/{serviceId}:
  *   get:
- *     summary: Lấy danh sách tin tức theo service
+ *     summary: Lấy danh sách tin tức theo service (hoặc service=null nếu truyền 'null')
  *     tags: [News]
  *     parameters:
  *       - in: path
  *         name: serviceId
  *         schema:
  *           type: string
+ *           default: null
  *         required: true
- *         description: Id của service
+ *         description: Id của service (truyền 'null' để lấy news không thuộc service)
  *     responses:
  *       200:
- *         description: Danh sách tin tức theo service
+ *         description: Danh sách tin tức theo service hoặc không thuộc service
  */
-const express = require("express");
-const router = express.Router();
-const newsController = require("../controllers/newsController");
-
 router.get("/service/:serviceId", newsController.getNewsByService);
 /**
  * @swagger

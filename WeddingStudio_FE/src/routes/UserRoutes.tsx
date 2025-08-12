@@ -21,7 +21,7 @@ const UserRoutes: React.FC = () => {
       <Route path="/" element={<UserLayout />}>
         <Route index element={<Home />} />
         <Route path="album" element={<Album />} />
-        <Route path="services" element={<Services />} />
+        <Route path="services/:id?" element={<Services />} />
         <Route path="pricing" element={<Pricing />} />
         <Route path="about" element={<About />} />
         <Route path="contact" element={<Contact />} />
