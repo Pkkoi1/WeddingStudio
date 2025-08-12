@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { fetchPaginatedAlbumCovers } from "../../../utils/AlbumCover";
 import type { AlbumCover } from "../../../data/AlbumCorver";
+import AlbumItem from "./AlbumItem";
 
 const ListCover: React.FC = () => {
   const [albums, setAlbums] = useState<AlbumCover[]>([]);
@@ -40,29 +41,14 @@ const ListCover: React.FC = () => {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {albums.map((album) => (
-            <div
+            <AlbumItem
               key={album._id}
-              className="bg-white rounded-lg shadow-md p-4 transition-transform hover:scale-105"
-            >
-              <img
-                src={album.coverImage}
-                alt={album.description || "Album cover"}
-                className="w-full h-64 object-cover rounded-md mb-4"
-              />
-              <h3 className="text-2xl font-amatic text-[#d36e6e] font-bold mb-2 text-center tracking-wider">
-                {album.title}
-              </h3>
-              <div className="flex items-center justify-center text-gray-500 text-sm mb-1">
-                <span className="mr-1">📍</span>
-                <span>{album.location?.city || "Không xác định"}</span>
-              </div>
-              <div className="flex items-center justify-center text-gray-500 text-sm">
-                <span className="mr-1">Loại sản phẩm:</span>
-                <span className="text-gray-800 font-semibold ml-1">
-                  Album cưới
-                </span>
-              </div>
-            </div>
+              id={album._id}
+              title={album.title}
+              location={album.location?.city || "Không xác định"}
+              imageUrl={album.coverImage}
+              imageAlt={album.description || "Album cover"}
+            />
           ))}
         </div>
       )}

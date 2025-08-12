@@ -80,6 +80,7 @@ const albumController = {
         location,
         tags,
         isPublic = true,
+        albumCover,
       } = req.body;
 
       const albumData = {
@@ -91,6 +92,7 @@ const albumController = {
         location,
         tags,
         isPublic,
+        albumCover,
       };
 
       const album = new Album(albumData);
@@ -123,6 +125,7 @@ const albumController = {
         location,
         tags,
         isPublic,
+        albumCover,
       } = req.body;
 
       const updateData = {};
@@ -134,6 +137,7 @@ const albumController = {
       if (location !== undefined) updateData.location = location;
       if (tags !== undefined) updateData.tags = tags;
       if (isPublic !== undefined) updateData.isPublic = isPublic;
+      if (albumCover !== undefined) updateData.albumCover = albumCover;
 
       const album = await Album.findByIdAndUpdate(req.params.id, updateData, {
         new: true,
