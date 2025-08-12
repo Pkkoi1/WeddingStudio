@@ -1,141 +1,43 @@
 [
   {
-    "_id": "60f7b3b3b3b3b3b3b3b3b3c1",
-    "name": "Gói chụp ảnh cưới trọn gói Premium",
-    "description": "Gói chụp ảnh cưới cao cấp bao gồm chụp ảnh cưới ngoại cảnh, studio, trang điểm, váy cưới và album ảnh sang trọng. Phù hợp cho các cặp đôi muốn có bộ ảnh cưới hoàn hảo nhất.",
-    "price": 15000000,
-    "duration": 8,
-    "images": [
-      "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800&h=600&fit=crop"
-    ],
-    "features": [
-      "Chụp ảnh ngoại cảnh tại 3 địa điểm",
-      "Chụp ảnh studio với đạo cụ cao cấp",
-      "Trang điểm chuyên nghiệp",
-      "3 bộ váy cưới + 2 bộ vest",
-      "Album ảnh 30x40cm (50 ảnh)",
-      "USB chứa toàn bộ ảnh gốc",
-      "Ảnh được chỉnh sửa chuyên nghiệp"
-    ],
-    "category": "wedding",
-    "isActive": true,
+    "_id": { "$oid": "60f7b3b3b3b3b3b3b3b3b3c1" },
+    "title": "Quay phóng sự cưới",
+    "description": "Dịch vụ quay phóng sự cưới chuyên nghiệp, ghi lại toàn bộ khoảnh khắc ý nghĩa trong ngày trọng đại.",
     "createdAt": "2024-01-10T08:00:00.000Z",
     "updatedAt": "2024-01-10T08:00:00.000Z"
   },
   {
-    "_id": "60f7b3b3b3b3b3b3b3b3b3c2",
-    "name": "Gói chụp ảnh cưới cơ bản",
-    "description": "Gói chụp ảnh cưới phù hợp với ngân sách vừa phải, vẫn đảm bảo chất lượng ảnh đẹp và dịch vụ chuyên nghiệp.",
-    "price": 8000000,
-    "duration": 5,
-    "images": [
-      "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1594736797933-d0401ba2fe65?w=800&h=600&fit=crop"
-    ],
-    "features": [
-      "Chụp ảnh ngoại cảnh tại 2 địa điểm",
-      "Trang điểm cơ bản",
-      "2 bộ váy cưới + 1 bộ vest",
-      "Album ảnh 25x35cm (30 ảnh)",
-      "USB chứa ảnh đã chỉnh sửa",
-      "20 ảnh được chỉnh sửa chuyên nghiệp"
-    ],
-    "category": "wedding",
-    "isActive": true,
+    "_id": { "$oid": "60f7b3b3b3b3b3b3b3b3b3c2" },
+    "title": "Thuê trang phục cưới",
+    "description": "Dịch vụ cho thuê váy cưới, vest cưới đa dạng mẫu mã, phù hợp nhiều phong cách.",
     "createdAt": "2024-01-12T09:30:00.000Z",
     "updatedAt": "2024-01-12T09:30:00.000Z"
   },
   {
-    "_id": "60f7b3b3b3b3b3b3b3b3b3c3",
-    "name": "Chụp ảnh cưới ngoại cảnh Đà Lạt",
-    "description": "Gói chụp ảnh cưới tại thành phố ngàn hoa Đà Lạt với khung cảnh lãng mạn, thơ mộng. Bao gồm di chuyển và lưu trú 2 ngày 1 đêm.",
-    "price": 25000000,
-    "duration": 16,
-    "images": [
-      "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?w=800&h=600&fit=crop"
-    ],
-    "features": [
-      "Chụp ảnh tại 5 địa điểm nổi tiếng Đà Lạt",
-      "Di chuyển bằng xe riêng",
-      "Lưu trú khách sạn 4 sao",
-      "Trang điểm chuyên nghiệp",
-      "4 bộ váy cưới + 3 bộ vest",
-      "Album ảnh cao cấp 35x50cm (80 ảnh)",
-      "USB chứa toàn bộ ảnh gốc và đã chỉnh sửa"
-    ],
-    "category": "wedding",
-    "isActive": true,
+    "_id": { "$oid": "60f7b3b3b3b3b3b3b3b3b3c3" },
+    "title": "Trang điểm cô dâu",
+    "description": "Dịch vụ trang điểm cô dâu chuyên nghiệp, giúp cô dâu tỏa sáng trong ngày cưới.",
     "createdAt": "2024-01-15T10:00:00.000Z",
     "updatedAt": "2024-01-15T10:00:00.000Z"
   },
   {
-    "_id": "60f7b3b3b3b3b3b3b3b3b3c4",
-    "name": "Chụp ảnh cưới trước ngày cưới",
-    "description": "Gói chụp ảnh cưới dành cho các cặp đôi muốn có bộ ảnh kỷ niệm trước ngày cưới, phong cách tự nhiên và lãng mạn.",
-    "price": 6000000,
-    "duration": 4,
-    "images": [
-      "https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=800&h=600&fit=crop"
-    ],
-    "features": [
-      "Chụp ảnh ngoại cảnh tại 2 địa điểm",
-      "Phong cách tự nhiên, không cầu kỳ",
-      "Trang điểm nhẹ nhang",
-      "2 bộ trang phục casual",
-      "Album ảnh 20x30cm (25 ảnh)",
-      "15 ảnh được chỉnh sửa"
-    ],
-    "category": "prewedding",
-    "isActive": true,
+    "_id": { "$oid": "60f7b3b3b3b3b3b3b3b3b3c4" },
+    "title": "Chụp ảnh cưới",
+    "description": "Dịch vụ chụp ảnh cưới ngoại cảnh, studio, lưu giữ khoảnh khắc hạnh phúc của đôi bạn trẻ.",
     "createdAt": "2024-01-18T11:15:00.000Z",
     "updatedAt": "2024-01-18T11:15:00.000Z"
   },
   {
-    "_id": "60f7b3b3b3b3b3b3b3b3b3c5",
-    "name": "Chụp ảnh đính hôn",
-    "description": "Gói chụp ảnh kỷ niệm lễ đính hôn, ghi lại những khoảnh khắc đáng nhớ trong ngày trọng đại của đôi bạn trẻ.",
-    "price": 4000000,
-    "duration": 3,
-    "images": [
-      "https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1520854221256-17451cc331bf?w=800&h=600&fit=crop"
-    ],
-    "features": [
-      "Chụp ảnh tại nhà hoặc địa điểm tổ chức",
-      "Ghi lại toàn bộ lễ đính hôn",
-      "Chụp ảnh gia đình hai bên",
-      "Album ảnh 20x25cm (20 ảnh)",
-      "USB chứa toàn bộ ảnh"
-    ],
-    "category": "engagement",
-    "isActive": true,
+    "_id": { "$oid": "60f7b3b3b3b3b3b3b3b3b3c5" },
+    "title": "Thiếp cưới đẹp",
+    "description": "Thiết kế và in ấn thiệp cưới đẹp, sang trọng, phù hợp phong cách riêng của từng cặp đôi.",
     "createdAt": "2024-01-20T13:45:00.000Z",
     "updatedAt": "2024-01-20T13:45:00.000Z"
   },
   {
-    "_id": "60f7b3b3b3b3b3b3b3b3b3c6",
-    "name": "Chụp ảnh profile cá nhân",
-    "description": "Dịch vụ chụp ảnh profile chuyên nghiệp cho nhu cầu cá nhân, công việc hoặc mạng xã hội.",
-    "price": 2000000,
-    "duration": 2,
-    "images": [
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop",
-      "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=800&h=600&fit=crop"
-    ],
-    "features": [
-      "Chụp ảnh studio với ánh sáng chuyên nghiệp",
-      "3-5 bộ trang phục",
-      "Trang điểm cơ bản",
-      "10 ảnh được chỉnh sửa",
-      "File ảnh chất lượng cao"
-    ],
-    "category": "portrait",
-    "isActive": true,
+    "_id": { "$oid": "60f7b3b3b3b3b3b3b3b3b3c6" },
+    "title": "Dịch vụ cưới trọn gói",
+    "description": "Dịch vụ tổ chức cưới trọn gói, từ lên ý tưởng, trang trí, đến thực hiện chương trình ngày cưới.",
     "createdAt": "2024-01-22T15:30:00.000Z",
     "updatedAt": "2024-01-22T15:30:00.000Z"
   }

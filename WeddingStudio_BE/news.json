@@ -1,0 +1,74 @@
+[
+  {
+    "title": "Bí quyết chụp ảnh cưới đẹp tự nhiên",
+    "admin": "admin_id_1",
+    "location": "60f7b3b3b3b3b3b3b3b3b3e1",
+    "service": { "$oid": "60f7b3b3b3b3b3b3b3b3b3c4" },
+    "content": [
+      {
+        "text": "Để có bộ ảnh cưới tự nhiên, hãy lựa chọn địa điểm phù hợp với phong cách của hai bạn. Đừng ngại thể hiện cảm xúc thật, hãy để nhiếp ảnh gia bắt trọn những khoảnh khắc tự nhiên nhất. Trang phục nên đơn giản, màu sắc hài hòa với khung cảnh. Đặc biệt, ánh sáng tự nhiên vào buổi sáng hoặc chiều sẽ giúp ảnh thêm lung linh.",
+        "img": "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&h=600&fit=crop"
+      },
+      {
+        "text": "Hãy chuẩn bị tâm lý thoải mái, vui vẻ để buổi chụp diễn ra suôn sẻ. Đừng quên mang theo phụ kiện nhỏ như hoa, nón, khăn choàng để tạo điểm nhấn cho bức ảnh.",
+        "img": "https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=800&h=600&fit=crop"
+      }
+    ]
+  },
+  {
+    "title": "Xu hướng váy cưới sang trọng năm 2025",
+    "admin": "admin_id_2",
+    "location": "60f7b3b3b3b3b3b3b3b3b3e2",
+    "service": { "$oid": "60f7b3b3b3b3b3b3b3b3b3c2" },
+    "content": [
+      {
+        "text": "Năm 2025, các mẫu váy cưới thiên về sự tối giản nhưng vẫn toát lên vẻ sang trọng. Chất liệu lụa cao cấp, ren nhẹ nhàng và các chi tiết đính đá tinh tế là điểm nhấn nổi bật. Màu trắng truyền thống vẫn được ưa chuộng, bên cạnh đó là các tông pastel nhẹ nhàng.",
+        "img": "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&h=600&fit=crop"
+      },
+      {
+        "text": "Cô dâu có thể lựa chọn váy cưới dáng A hoặc đuôi cá để tôn lên vóc dáng. Đừng quên kết hợp cùng phụ kiện như khăn voan, vương miện để hoàn thiện phong cách.",
+        "img": "https://images.unsplash.com/photo-1594736797933-d0401ba2fe65?w=800&h=600&fit=crop"
+      }
+    ]
+  },
+  {
+    "title": "Thiệp cưới đẹp - ấn tượng cho ngày trọng đại",
+    "admin": "admin_id_3",
+    "location": "60f7b3b3b3b3b3b3b3b3b3e3",
+    "service": { "$oid": "60f7b3b3b3b3b3b3b3b3b3c5" },
+    "content": [
+      {
+        "text": "Thiệp cưới không chỉ là lời mời mà còn thể hiện phong cách của cặp đôi. Xu hướng thiệp cưới hiện nay là thiết kế tối giản, sử dụng giấy mỹ thuật cao cấp, màu sắc nhã nhặn. Một số cặp đôi còn chọn in hình ảnh cá nhân hoặc họa tiết hoa lá để tạo dấu ấn riêng.",
+        "img": "https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?w=800&h=600&fit=crop"
+      },
+      {
+        "text": "Bạn nên đặt thiệp cưới trước ngày cưới ít nhất 1 tháng để có thời gian kiểm tra và chỉnh sửa nếu cần thiết.",
+        "img": "https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800&h=600&fit=crop"
+      }
+    ]
+  },
+  {
+    "title": "Kinh nghiệm tổ chức tiệc cưới tiết kiệm mà vẫn ấn tượng",
+    "admin": "admin_id_4",
+    "location": "60f7b3b3b3b3b3b3b3b3b3e4",
+    "service": null,
+    "content": [
+      {
+        "text": "Để tổ chức tiệc cưới tiết kiệm, bạn nên lên kế hoạch chi tiết từ sớm, lựa chọn nhà hàng phù hợp ngân sách và số lượng khách mời vừa phải. Trang trí tiệc cưới có thể tận dụng hoa tươi theo mùa, phụ kiện handmade để giảm chi phí mà vẫn đẹp mắt.",
+        "img": "https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=800&h=600&fit=crop"
+      }
+    ]
+  },
+  {
+    "title": "Chia sẻ cảm xúc ngày cưới - khoảnh khắc không thể quên",
+    "admin": "admin_id_5",
+    "location": "60f7b3b3b3b3b3b3b3b3b3e5",
+    "service": null,
+    "content": [
+      {
+        "text": "Ngày cưới là ngày trọng đại, hãy dành thời gian tận hưởng từng khoảnh khắc bên người thân và bạn bè. Đừng quá lo lắng về các chi tiết nhỏ, hãy để mọi thứ diễn ra tự nhiên để lưu giữ những kỷ niệm đẹp nhất.",
+        "img": "https://images.unsplash.com/photo-1520854221256-17451cc331bf?w=800&h=600&fit=crop"
+      }
+    ]
+  }
+]

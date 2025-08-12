@@ -4,19 +4,13 @@ const serviceController = {
   // GET /api/services
   getAllServices: async (req, res) => {
     try {
-      const { category, page = 1, limit = 10 } = req.query;
-      const query = { isActive: true };
-
-      if (category) {
-        query.category = category;
-      }
-
-      const services = await Service.find(query)
+      const { page = 1, limit = 10 } = req.query;
+      const services = await Service.find()
         .limit(limit * 1)
         .skip((page - 1) * limit)
         .sort({ createdAt: -1 });
 
-      const total = await Service.countDocuments(query);
+      const total = await Service.countDocuments();
 
       res.json({
         success: true,
