@@ -1,17 +1,17 @@
 import React from "react";
 import Breadcrumb from "../../../components/common/Breadcrumb";
-import MainAlbum from "../../../components/user/album/MainAlbum";
+import ListCover from "../../../components/user/album/ListCover";
 
 const Album: React.FC = () => {
   const breadcrumbItems = [
     { label: "Trang chủ", href: "/" },
-    { label: "Tất cả sản phẩm" },
+    { label: "Album" },
   ];
 
   return (
     <div className="container w-screen">
       <Breadcrumb items={breadcrumbItems} />
-      <MainAlbum />
+      <ListCover />
     </div>
   );
 };
