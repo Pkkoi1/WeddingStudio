@@ -1,22 +1,22 @@
 import { Facebook, Youtube } from "lucide-react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import logo from "../../../../public/logo.webp";
 
 export default function Header() {
-  const navigate = useNavigate();
-
   const handlePricingClick = () => {
-    navigate("/");
-    setTimeout(() => {
+    if (window.location.pathname !== "/") {
+      window.location.href = "/#pricing"; // Reloads the page with the hash
+    } else {
       window.scrollToPricing?.();
-    }, 100);
+    }
   };
 
   const handleContactClick = () => {
-    navigate("/");
-    setTimeout(() => {
+    if (window.location.pathname !== "/") {
+      window.location.href = "/#contact"; // Reloads the page with the hash
+    } else {
       window.scrollToContact?.();
-    }, 100);
+    }
   };
 
   return (

@@ -1,4 +1,5 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import Banner from "../../../components/user/banner/Banner";
 import MainServices from "../../../components/user/service/MainService";
 import MainAlbum from "../../../components/user/album/MainAlbum";
@@ -11,6 +12,7 @@ import ScrollToTopButton from "../../../components/common/ScrollToTopButton";
 const Home: React.FC = () => {
   const pricingRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
+  const location = useLocation();
 
   const scrollToPricing = () => {
     pricingRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -20,7 +22,19 @@ const Home: React.FC = () => {
     contactRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
+    if (location.hash === "#pricing") {
+      setTimeout(() => {
+        scrollToPricing();
+      }, 200); // Add a slight delay
+    } else if (location.hash === "#contact") {
+      setTimeout(() => {
+        scrollToContact();
+      }, 200); // Add a slight delay
+    }
+  }, [location]);
+
+  useEffect(() => {
     window.scrollToPricing = scrollToPricing;
     window.scrollToContact = scrollToContact;
     return () => {
