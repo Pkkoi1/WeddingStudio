@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import Banner from "../../../components/user/banner/Banner";
 import MainServices from "../../../components/user/service/MainService";
 import MainAlbum from "../../../components/user/album/MainAlbum";
@@ -9,15 +9,39 @@ import ContactMap from "../../../components/user/contact/ContactMap";
 import ScrollToTopButton from "../../../components/common/ScrollToTopButton";
 
 const Home: React.FC = () => {
+  const pricingRef = useRef<HTMLDivElement>(null);
+  const contactRef = useRef<HTMLDivElement>(null);
+
+  const scrollToPricing = () => {
+    pricingRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const scrollToContact = () => {
+    contactRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  React.useEffect(() => {
+    window.scrollToPricing = scrollToPricing;
+    window.scrollToContact = scrollToContact;
+    return () => {
+      delete window.scrollToPricing;
+      delete window.scrollToContact;
+    };
+  }, []);
+
   return (
     <div className="container ">
       <Banner></Banner>
       <MainServices></MainServices>
       <MainAlbum></MainAlbum>
       <VideoGraphic></VideoGraphic>
-      <PricingTable></PricingTable>
+      <div ref={pricingRef}>
+        <PricingTable></PricingTable>
+      </div>
       <AboutStudio></AboutStudio>
-      <ContactMap></ContactMap>
+      <div ref={contactRef}>
+        <ContactMap></ContactMap>
+      </div>
       <ScrollToTopButton />
     </div>
   );

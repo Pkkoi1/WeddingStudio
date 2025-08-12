@@ -1,8 +1,24 @@
 import { Facebook, Youtube } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../../../public/logo.webp";
 
 export default function Header() {
+  const navigate = useNavigate();
+
+  const handlePricingClick = () => {
+    navigate("/");
+    setTimeout(() => {
+      window.scrollToPricing?.();
+    }, 100);
+  };
+
+  const handleContactClick = () => {
+    navigate("/");
+    setTimeout(() => {
+      window.scrollToContact?.();
+    }, 100);
+  };
+
   return (
     <header className="w-full bg-white shadow-sm fixed top-0 left-0 z-50 px-[10%]">
       {/* Main Navigation */}
@@ -25,7 +41,11 @@ export default function Header() {
             <span className="mx-1">/</span>
           </li>
           <li>
-            <Link to="/pricing" className="hover:text-gray-900">
+            <Link
+              to="#"
+              onClick={handlePricingClick}
+              className="hover:text-gray-900"
+            >
               BẢNG GIÁ
             </Link>
           </li>
@@ -42,7 +62,7 @@ export default function Header() {
           </Link>
         </div>
 
-        <ul className="flex space-x-6 text-lg font-medium text-gray-700">
+        <ul className="flex space-x-6 text-sm font-medium text-gray-700">
           <li>
             <Link to="/about" className="hover:text-gray-900">
               GIỚI THIỆU
@@ -52,7 +72,11 @@ export default function Header() {
             <span className="mx-1">/</span>
           </li>
           <li>
-            <Link to="/contact" className="hover:text-gray-900">
+            <Link
+              to="#"
+              onClick={handleContactClick}
+              className="hover:text-gray-900"
+            >
               LIÊN HỆ
             </Link>
           </li>
