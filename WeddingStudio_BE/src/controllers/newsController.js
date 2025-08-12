@@ -1,5 +1,22 @@
 const News = require("../models/News");
 
+// Lấy danh sách news theo serviceId
+exports.getNewsByService = async (req, res) => {
+  try {
+    const { serviceId } = req.params;
+    const news = await News.find({ service: serviceId })
+      .populate({ path: "admin" })
+      .populate({ path: "location" })
+      .populate({ path: "service" });
+    res.json({
+      success: true,
+      data: news,
+    });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
 // Lấy tất cả tin tức
 exports.getAllNews = async (req, res) => {
   try {

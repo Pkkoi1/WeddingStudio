@@ -1,5 +1,27 @@
 /**
  * @swagger
+ * /api/news/service/{serviceId}:
+ *   get:
+ *     summary: Lấy danh sách tin tức theo service
+ *     tags: [News]
+ *     parameters:
+ *       - in: path
+ *         name: serviceId
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: Id của service
+ *     responses:
+ *       200:
+ *         description: Danh sách tin tức theo service
+ */
+const express = require("express");
+const router = express.Router();
+const newsController = require("../controllers/newsController");
+
+router.get("/service/:serviceId", newsController.getNewsByService);
+/**
+ * @swagger
  * tags:
  *   name: News
  *   description: Quản lý tin tức cưới
@@ -80,10 +102,6 @@
  *       404:
  *         description: Không tìm thấy
  */
-
-const express = require("express");
-const router = express.Router();
-const newsController = require("../controllers/newsController");
 
 router.get("/", newsController.getAllNews);
 router.get("/:id", newsController.getNewsById);

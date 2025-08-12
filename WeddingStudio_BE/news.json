@@ -1,7 +1,7 @@
 [
   {
     "title": "Bí quyết chụp ảnh cưới đẹp tự nhiên",
-    "admin": "admin_id_1",
+    "admin": "60f7b3b3b3b3b3b3b3b3b3b1",
     "location": "60f7b3b3b3b3b3b3b3b3b3e1",
     "service": { "$oid": "60f7b3b3b3b3b3b3b3b3b3c4" },
     "content": [
@@ -17,7 +17,7 @@
   },
   {
     "title": "Xu hướng váy cưới sang trọng năm 2025",
-    "admin": "admin_id_2",
+    "admin": "60f7b3b3b3b3b3b3b3b3b3b2",
     "location": "60f7b3b3b3b3b3b3b3b3b3e2",
     "service": { "$oid": "60f7b3b3b3b3b3b3b3b3b3c2" },
     "content": [
@@ -33,7 +33,7 @@
   },
   {
     "title": "Thiệp cưới đẹp - ấn tượng cho ngày trọng đại",
-    "admin": "admin_id_3",
+    "admin": "60f7b3b3b3b3b3b3b3b3b3b1",
     "location": "60f7b3b3b3b3b3b3b3b3b3e3",
     "service": { "$oid": "60f7b3b3b3b3b3b3b3b3b3c5" },
     "content": [
@@ -49,7 +49,7 @@
   },
   {
     "title": "Kinh nghiệm tổ chức tiệc cưới tiết kiệm mà vẫn ấn tượng",
-    "admin": "admin_id_4",
+    "admin": "60f7b3b3b3b3b3b3b3b3b3b2",
     "location": "60f7b3b3b3b3b3b3b3b3b3e4",
     "service": null,
     "content": [
@@ -61,7 +61,7 @@
   },
   {
     "title": "Chia sẻ cảm xúc ngày cưới - khoảnh khắc không thể quên",
-    "admin": "admin_id_5",
+    "admin": "60f7b3b3b3b3b3b3b3b3b3b1",
     "location": "60f7b3b3b3b3b3b3b3b3b3e5",
     "service": null,
     "content": [

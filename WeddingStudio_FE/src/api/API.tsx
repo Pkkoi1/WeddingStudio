@@ -1,6 +1,7 @@
 import axios from "axios";
 import type { AlbumCover } from "../data/AlbumCorver";
 import type { Service } from "../data/Service";
+import type { News } from "../data/News";
 
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
 
@@ -133,6 +134,72 @@ export const ServiceAPI = {
       return response.data;
     } catch (error) {
       console.error(`Error deleting service with id ${id}:`, error);
+      throw error;
+    }
+  },
+};
+
+export const NewsAPI = {
+  getAllNews: async () => {
+    try {
+      const response = await apiClient.get("/news");
+      return response.data;
+    } catch (error) {
+      console.error("Error fetching all news:", error);
+      throw error;
+    }
+  },
+  getNewsById: async (id: string) => {
+    try {
+      const response = await apiClient.get(`/news/${id}`);
+      return response.data;
+    } catch (error) {
+      console.error(`Error fetching news with id ${id}:`, error);
+      throw error;
+    }
+  },
+  getNewsByService: async (serviceId: string) => {
+    try {
+      const response = await apiClient.get(`/news/service/${serviceId}`);
+      return response.data;
+    } catch (error) {
+      console.error(`Error fetching news for service ${serviceId}:`, error);
+      throw error;
+    }
+  },
+  createNews: async (data: Omit<News, "_id" | "createdAt" | "updatedAt">) => {
+    try {
+      const response = await apiClient.post("/news", data, {
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+      });
+      return response.data;
+    } catch (error) {
+      console.error("Error creating news:", error);
+      throw error;
+    }
+  },
+  updateNews: async (
+    id: string,
+    data: Partial<Omit<News, "_id" | "createdAt" | "updatedAt">>
+  ) => {
+    try {
+      const response = await apiClient.put(`/news/${id}`, data, {
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+      });
+      return response.data;
+    } catch (error) {
+      console.error(`Error updating news with id ${id}:`, error);
+      throw error;
+    }
+  },
+  deleteNews: async (id: string) => {
+    try {
+      const response = await apiClient.delete(`/news/${id}`, {
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+      });
+      return response.data;
+    } catch (error) {
+      console.error(`Error deleting news with id ${id}:`, error);
       throw error;
     }
   },
