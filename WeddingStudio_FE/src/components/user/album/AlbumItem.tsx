@@ -42,9 +42,11 @@ export default function AlbumItem({
         <h3 className="text-xl font-bold text-[#e74c3c] mb-2 font-amatic">
           {title}
         </h3>
-        <div className="flex items-center text-gray-600">
+        <div className="flex justify-center items-center text-gray-600">
           <MapPin className="h-4 w-4 mr-2" />
-          <span className="text-sm">Địa chỉ chụp: {location}</span>
+          <span className="text-sm">
+            Địa chỉ chụp: <strong className="font-semibold">{location}</strong>
+          </span>
         </div>
       </div>
     </div>

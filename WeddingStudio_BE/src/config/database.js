@@ -11,6 +11,7 @@ const Service = require("../models/Service");
 const Album = require("../models/Album");
 const Booking = require("../models/Booking");
 const Location = require("../models/Location");
+const News = require("../models/News");
 
 const connectDB = async () => {
   try {
@@ -43,6 +44,7 @@ const createCollections = async () => {
       "albumcovers",
       "bookings",
       "locations",
+      "news",
     ];
     const existingCollections = await db.listCollections().toArray();
     const existingNames = existingCollections.map((col) => col.name);
@@ -68,6 +70,7 @@ const createCollections = async () => {
     await AlbumCover.ensureIndexes();
     await Booking.ensureIndexes();
     await Location.ensureIndexes();
+    await News.ensureIndexes();
 
     console.log("🎉 Database collections ready!");
   } catch (error) {

@@ -98,6 +98,11 @@ const albumSchema = new mongoose.Schema(
       type: Boolean,
       default: true,
     },
+    albumCover: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "AlbumCover",
+      required: false,
+    },
   },
   {
     timestamps: true,
