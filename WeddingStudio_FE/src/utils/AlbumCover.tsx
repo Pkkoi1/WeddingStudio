@@ -1,9 +1,10 @@
 import { AlbumCoverAPI } from "../api/API";
+import type { AlbumCover } from "../data/AlbumCorver";
 
 export const fetchPaginatedAlbumCovers = async (
   page: number,
   limit: number
-) => {
+): Promise<{ albumCovers: AlbumCover[]; total: number }> => {
   try {
     const response = await AlbumCoverAPI.getPaginatedAlbumCovers(page, limit);
     return response.data;
@@ -13,7 +14,9 @@ export const fetchPaginatedAlbumCovers = async (
   }
 };
 
-export const createAlbumCover = async (data: any) => {
+export const createAlbumCover = async (
+  data: AlbumCover
+): Promise<AlbumCover> => {
   try {
     const response = await AlbumCoverAPI.createAlbumCover(data);
     return response.data;
@@ -23,7 +26,10 @@ export const createAlbumCover = async (data: any) => {
   }
 };
 
-export const updateAlbumCover = async (id: string, data: any) => {
+export const updateAlbumCover = async (
+  id: string,
+  data: Partial<AlbumCover>
+): Promise<AlbumCover> => {
   try {
     const response = await AlbumCoverAPI.updateAlbumCover(id, data);
     return response.data;
@@ -33,7 +39,7 @@ export const updateAlbumCover = async (id: string, data: any) => {
   }
 };
 
-export const deleteAlbumCover = async (id: string) => {
+export const deleteAlbumCover = async (id: string): Promise<void> => {
   try {
     const response = await AlbumCoverAPI.deleteAlbumCover(id);
     return response.data;
