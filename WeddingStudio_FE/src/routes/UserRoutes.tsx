@@ -8,13 +8,20 @@ import Pricing from "../pages/user/pricing/Pricing";
 import About from "../pages/user/about/About";
 import Contact from "../pages/user/contact/Contact";
 
+declare global {
+  interface Window {
+    scrollToPricing?: () => void;
+    scrollToContact?: () => void;
+  }
+}
+
 const UserRoutes: React.FC = () => {
   return (
     <Routes>
       <Route path="/" element={<UserLayout />}>
         <Route index element={<Home />} />
         <Route path="album" element={<Album />} />
-        <Route path="services" element={<Services />} />
+        <Route path="services/:id?" element={<Services />} />
         <Route path="pricing" element={<Pricing />} />
         <Route path="about" element={<About />} />
         <Route path="contact" element={<Contact />} />

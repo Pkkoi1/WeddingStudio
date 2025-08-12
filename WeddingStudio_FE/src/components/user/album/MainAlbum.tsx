@@ -1,55 +1,31 @@
+import { useEffect, useState } from "react";
+import { fetchPaginatedAlbumCovers } from "../../../utils/AlbumCover";
 import { Heart } from "lucide-react";
 import AlbumItem from "./AlbumItem";
+import type { AlbumCover } from "../../../data/AlbumCorver";
 
 const MainAlbum: React.FC = () => {
-  // Sample album data
-  const albums = [
-    {
-      id: "1",
-      title: "ALBUM TẠI CÔ TÔ",
-      location: "Vĩnh Phúc",
-      imageUrl: "/tropical-wedding.png",
-      imageAlt: "Wedding album at Co To",
-    },
-    {
-      id: "2",
-      title: "ALBUM TẠI ÁO",
-      location: "Áo",
-      imageUrl: "/mountain-wedding.png",
-      imageAlt: "Wedding album in Austria",
-    },
-    {
-      id: "3",
-      title: "ALBUM TẠI PHÚ QUỐC",
-      location: "Phú Quốc",
-      imageUrl: "/tropical-wedding.png",
-      imageAlt: "Wedding album in Phu Quoc",
-    },
-    {
-      id: "4",
-      title: "ALBUM TẠI ĐÀ LẠT",
-      location: "Đà Lạt",
-      imageUrl: "/wedding-couple-flower-mountains.png",
-      imageAlt: "Wedding album in Da Lat",
-    },
-    {
-      id: "5",
-      title: "ALBUM TẠI HỘI AN",
-      location: "Hội An",
-      imageUrl: "/wedding-couple-ancient-town-lanterns.png",
-      imageAlt: "Wedding album in Hoi An",
-    },
-    {
-      id: "6",
-      title: "ALBUM TẠI SÀI GÒN",
-      location: "Sài Gòn",
-      imageUrl: "/modern-city-wedding.png",
-      imageAlt: "Wedding album in Saigon",
-    },
-  ];
+  const [albums, setAlbums] = useState<AlbumCover[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    const fetchAlbums = async () => {
+      try {
+        setLoading(true);
+        const response = await fetchPaginatedAlbumCovers(1, 12); // Fetch the first page with a limit of 12
+        setAlbums(response.albumCovers);
+      } catch (error) {
+        console.error("Error fetching albums:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchAlbums();
+  }, []);
 
   return (
-    <section className="container mx-auto px-4 py-16 bg-gray-50">
+    <section className="flex flex-col items-center justify-center container mx-auto py-8 border-t-[0.5px] border-gray-200 px-[10%] bg-white">
       <div className="text-center mb-12">
         <h2 className="text-4xl font-bold text-gray-800 mb-4 font-amatic">
           ALBUM TIÊU BIỂU
@@ -64,18 +40,22 @@ const MainAlbum: React.FC = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {albums.map((album) => (
-          <AlbumItem
-            key={album.id}
-            id={album.id}
-            title={album.title}
-            location={album.location}
-            imageUrl={album.imageUrl}
-            imageAlt={album.imageAlt}
-          />
-        ))}
-      </div>
+      {loading ? (
+        <p className="text-center text-gray-500">Đang tải dữ liệu...</p>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {albums.map((album) => (
+            <AlbumItem
+              key={album._id}
+              id={album._id}
+              title={album.title}
+              location={album.location?.city || "Không xác định"}
+              imageUrl={album.coverImage}
+              imageAlt={album.description || "Album cover"}
+            />
+          ))}
+        </div>
+      )}
     </section>
   );
 };

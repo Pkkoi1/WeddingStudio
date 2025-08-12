@@ -1,8 +1,126 @@
 const express = require("express");
-const AlbumCover = require("../models/AlbumCover");
-const Album = require("../models/Album");
+const albumCoverController = require("../controllers/albumCoverController");
 const { auth, adminAuth } = require("../middleware/auth");
 const router = express.Router();
+
+/**
+ * @swagger
+ * /api/album-covers:
+ *   get:
+ *     summary: Get all album covers (bìa albums)
+ *     tags: [Album Covers]
+ *     parameters:
+ *       - in: query
+ *         name: page
+ *         schema:
+ *           type: integer
+ *           default: 1
+ *       - in: query
+ *         name: limit
+ *         schema:
+ *           type: integer
+ *           default: 12
+ *     responses:
+ *       200:
+ *         description: List of album covers with location info
+ */
+router.get("/", albumCoverController.getAllAlbumCovers);
+
+/**
+ * @swagger
+ * /api/album-covers/{id}:
+ *   get:
+ *     summary: Get album cover with all albums at that location
+ *     tags: [Album Covers]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Album cover details with all albums at that location
+ *       404:
+ *         description: Album cover not found
+ */
+router.get("/:id", albumCoverController.getAlbumCoverById);
+
+/**
+ * @swagger
+ * /api/album-covers:
+ *   post:
+ *     summary: Create new album cover (Admin only)
+ *     tags: [Album Covers]
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/AlbumCover'
+ *     responses:
+ *       201:
+ *         description: Album cover created successfully
+ *       401:
+ *         description: Unauthorized
+ *       403:
+ *         description: Admin access required
+ */
+router.post("/", auth, adminAuth, albumCoverController.createAlbumCover);
+
+/**
+ * @swagger
+ * /api/album-covers/{id}:
+ *   put:
+ *     summary: Update album cover (Admin only)
+ *     tags: [Album Covers]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/AlbumCover'
+ *     responses:
+ *       200:
+ *         description: Album cover updated successfully
+ *       404:
+ *         description: Album cover not found
+ */
+router.put("/:id", auth, adminAuth, albumCoverController.updateAlbumCover);
+
+/**
+ * @swagger
+ * /api/album-covers/{id}:
+ *   delete:
+ *     summary: Delete album cover (Admin only)
+ *     tags: [Album Covers]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Album cover deleted successfully
+ *       404:
+ *         description: Album cover not found
+ */
+router.delete("/:id", auth, adminAuth, albumCoverController.deleteAlbumCover);
+
+module.exports = router;
 
 /**
  * @swagger

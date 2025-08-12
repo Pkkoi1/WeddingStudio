@@ -1,7 +1,137 @@
 const express = require("express");
-const Location = require("../models/Location");
+const locationController = require("../controllers/locationController");
 const { auth, adminAuth } = require("../middleware/auth");
 const router = express.Router();
+
+/**
+ * @swagger
+ * /api/locations:
+ *   get:
+ *     summary: Get all locations
+ *     tags: [Locations]
+ *     parameters:
+ *       - in: query
+ *         name: city
+ *         schema:
+ *           type: string
+ *         description: Filter by city
+ *       - in: query
+ *         name: category
+ *         schema:
+ *           type: string
+ *           enum: [outdoor, indoor, beach, mountain, urban, historical, garden, church]
+ *         description: Filter by category
+ *       - in: query
+ *         name: page
+ *         schema:
+ *           type: integer
+ *           default: 1
+ *       - in: query
+ *         name: limit
+ *         schema:
+ *           type: integer
+ *           default: 10
+ *     responses:
+ *       200:
+ *         description: List of locations
+ */
+router.get("/", locationController.getAllLocations);
+
+/**
+ * @swagger
+ * /api/locations/{id}:
+ *   get:
+ *     summary: Get location by ID
+ *     tags: [Locations]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Location details
+ *       404:
+ *         description: Location not found
+ */
+router.get("/:id", locationController.getLocationById);
+
+/**
+ * @swagger
+ * /api/locations:
+ *   post:
+ *     summary: Create new location (Admin only)
+ *     tags: [Locations]
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/Location'
+ *     responses:
+ *       201:
+ *         description: Location created successfully
+ *       401:
+ *         description: Unauthorized
+ *       403:
+ *         description: Admin access required
+ */
+router.post("/", auth, adminAuth, locationController.createLocation);
+
+/**
+ * @swagger
+ * /api/locations/{id}:
+ *   put:
+ *     summary: Update location (Admin only)
+ *     tags: [Locations]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/Location'
+ *     responses:
+ *       200:
+ *         description: Location updated successfully
+ *       404:
+ *         description: Location not found
+ */
+router.put("/:id", auth, adminAuth, locationController.updateLocation);
+
+/**
+ * @swagger
+ * /api/locations/{id}:
+ *   delete:
+ *     summary: Delete location (Admin only)
+ *     tags: [Locations]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Location deleted successfully
+ *       404:
+ *         description: Location not found
+ */
+router.delete("/:id", auth, adminAuth, locationController.deleteLocation);
+
+module.exports = router;
 
 /**
  * @swagger
