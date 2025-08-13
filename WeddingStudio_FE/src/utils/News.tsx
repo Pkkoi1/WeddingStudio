@@ -14,7 +14,7 @@ export const fetchAllNews = async (): Promise<News[]> => {
 export const fetchNewsById = async (id: string): Promise<News> => {
   try {
     const response = await NewsAPI.getNewsById(id);
-    return response.data;
+    return response;
   } catch (error) {
     console.error(`Error fetching news with id ${id}:`, error);
     throw error;
