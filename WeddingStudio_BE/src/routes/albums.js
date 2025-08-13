@@ -33,6 +33,27 @@ router.get("/", albumController.getAllAlbums);
 
 /**
  * @swagger
+ * /api/albums/by-cover/{albumCover}:
+ *   get:
+ *     summary: Get albums by albumCover
+ *     tags: [Albums]
+ *     parameters:
+ *       - in: path
+ *         name: albumCover
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: AlbumCover ObjectId
+ *     responses:
+ *       200:
+ *         description: List of albums with this albumCover
+ *       404:
+ *         description: No albums found
+ */
+router.get("/by-cover/:albumCover", albumController.getAlbumsByCover);
+
+/**
+ * @swagger
  * /api/albums/{id}:
  *   get:
  *     summary: Get album by ID

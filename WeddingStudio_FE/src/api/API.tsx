@@ -2,6 +2,7 @@ import axios from "axios";
 import type { AlbumCover } from "../data/AlbumCorver";
 import type { Service } from "../data/Service";
 import type { News } from "../data/News";
+import type { Album } from "../data/Album";
 
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
 
@@ -202,5 +203,32 @@ export const NewsAPI = {
       console.error(`Error deleting news with id ${id}:`, error);
       throw error;
     }
+  },
+};
+
+interface AlbumPagination {
+  current: number;
+  pages: number;
+  total: number;
+}
+
+export const AlbumAPI = {
+  getAlbums: async (
+    category?: string,
+    page: number = 1,
+    limit: number = 12
+  ): Promise<{ albums: Album[]; pagination: AlbumPagination }> => {
+    const response = await apiClient.get("/albums", {
+      params: { category, page, limit },
+    });
+    return response.data.data;
+  },
+  getAlbumById: async (id: string): Promise<Album> => {
+    const response = await apiClient.get(`/albums/${id}`);
+    return response.data.data;
+  },
+  getAlbumsByCover: async (albumCover: string): Promise<Album[]> => {
+    const response = await apiClient.get(`/albums/by-cover/${albumCover}`);
+    return response.data.data.albums || [];
   },
 };
