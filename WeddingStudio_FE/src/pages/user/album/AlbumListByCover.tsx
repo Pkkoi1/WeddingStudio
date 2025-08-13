@@ -16,7 +16,7 @@ const AlbumListByCover: React.FC = () => {
         if (coverId) {
           const response = await fetchAlbumsByCover(coverId);
           console.log("Fetched albums by cover:", response);
-          setAlbums(response.data || []);
+          setAlbums(response || []);
         }
       } catch (error) {
         console.error("Error fetching albums by cover:", error);

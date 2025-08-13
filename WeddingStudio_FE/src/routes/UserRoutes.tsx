@@ -3,12 +3,12 @@ import { Routes, Route } from "react-router-dom";
 import UserLayout from "../layouts/UserLayout";
 import Home from "../pages/user/home/Home";
 import Album from "../pages/user/album/Album";
-import AlbumListByCover from "../pages/user/album/AlbumListByCover";
 import Services from "../pages/user/services/Services";
 import ServiceDetail from "../pages/user/services/ServiceDetail";
 import Pricing from "../pages/user/pricing/Pricing";
 import About from "../pages/user/about/About";
 import Contact from "../pages/user/contact/Contact";
+import AlbumListByCover from "../pages/user/album/AlbumListByCover";
 
 declare global {
   interface Window {
