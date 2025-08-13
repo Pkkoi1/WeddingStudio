@@ -4,6 +4,7 @@ import type { Album } from "../../../data/Album";
 import { fetchAlbumById } from "../../../utils/Album";
 import AlbumCollection from "../../../components/user/album/AlbumCollection";
 import Breadcrumb from "../../../components/common/Breadcrumb";
+import Share from "../../../components/user/communicate/Share";
 
 const AlbumDetail: React.FC = () => {
   const { albumId } = useParams<{ albumId: string }>();
@@ -57,6 +58,7 @@ const AlbumDetail: React.FC = () => {
           {album.description}
         </p>
         <AlbumCollection images={album.images} />
+        <Share></Share>
       </section>
     </>
   );

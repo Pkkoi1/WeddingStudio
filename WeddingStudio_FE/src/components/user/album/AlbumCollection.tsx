@@ -10,18 +10,18 @@ const AlbumCollection: React.FC<AlbumCollectionProps> = ({ images }) => {
       {images.map((img, idx) => (
         <div
           key={idx}
-          className="rounded-lg overflow-hidden shadow hover:shadow-lg transition-all bg-white"
+          className="rounded-lg overflow-hidden shadow hover:shadow-lg transition-all bg-white p-4"
         >
           <img
             src={img.url}
             alt={img.caption || `Ảnh ${idx + 1}`}
             className="w-full h-64 object-cover"
           />
-          {img.caption && (
+          {/* {img.caption && (
             <div className="p-2 text-center text-gray-700 text-sm">
               {img.caption}
             </div>
-          )}
+          )} */}
         </div>
       ))}
     </div>
