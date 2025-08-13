@@ -18,9 +18,9 @@ export const fetchServices = async (
   }
 };
 
-export const fetchServiceById = async (id: string): Promise<Service> => {
+export const fetchServiceById = async (id: string | null): Promise<Service> => {
   try {
-    const response = await ServiceAPI.getServiceById(id);
+    const response = await ServiceAPI.getServiceById(id || "null");
     return response.data;
   } catch (error) {
     console.error(`Error fetching service with id ${id}:`, error);
