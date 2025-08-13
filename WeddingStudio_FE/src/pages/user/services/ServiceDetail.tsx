@@ -4,6 +4,9 @@ import Breadcrumb from "../../../components/common/Breadcrumb";
 import { useParams } from "react-router-dom";
 import { fetchNewsById } from "../../../utils/News";
 import type { News } from "../../../data/News";
+import Share from "../../../components/user/communicate/Share";
+import CommentForm from "../../../components/user/communicate/CommentForm";
+import CommentList from "../../../components/user/communicate/CommentList";
 
 const serviceItems = [
   { label: "Album", href: "/album" },
@@ -23,22 +26,42 @@ const galleryItems = [
 const ServiceDetail: React.FC = () => {
   const { newsId } = useParams<{ newsId: string }>();
   const [news, setNews] = useState<News | null>(null);
+  const [comments, setComments] = useState<
+    { name: string; comment: string; createdAt?: string }[]
+  >([]);
 
   useEffect(() => {
     const fetchData = async () => {
       if (newsId) {
         try {
           const newsData = await fetchNewsById(newsId);
-          console.log(newsData, newsId);
+          // Nếu backend trả về comments, lấy, nếu không thì []
+          setComments((newsData as any).comments || []);
           setNews(newsData);
         } catch (error) {
           setNews(null);
+          setComments([]);
           console.error("Error fetching news by ID:", error);
         }
       }
     };
     fetchData();
   }, [newsId]);
+
+  const handleCommentSubmit = (data: {
+    name: string;
+    email: string;
+    comment: string;
+  }) => {
+    setComments([
+      ...comments,
+      {
+        name: data.name,
+        comment: data.comment,
+        createdAt: new Date().toLocaleString(),
+      },
+    ]);
+  };
 
   const breadcrumbItems = [
     { label: "Trang chủ", href: "/" },
@@ -76,6 +99,9 @@ const ServiceDetail: React.FC = () => {
                   />
                 </div>
               )}
+              <Share />
+              <CommentList comments={comments} />
+              <CommentForm onSubmit={handleCommentSubmit} />
             </div>
           ) : (
             <div>Đang tải...</div>
