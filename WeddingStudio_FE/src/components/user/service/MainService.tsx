@@ -69,7 +69,7 @@ const MainServices: React.FC = () => {
                 key={service._id}
                 icon={icons[index % icons.length]} // Cycle through the icons
                 title={service.title}
-                description={service.description}
+                slogan={service.slogan}
               />
             ))}
           </div>

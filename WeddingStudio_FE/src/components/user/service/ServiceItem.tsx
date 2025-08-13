@@ -3,14 +3,14 @@ import * as React from "react";
 interface ServiceItemProps {
   icon: string; // Changed to string for image source
   title: string;
-  description: string;
+  slogan: string;
   className?: string;
 }
 
 const ServiceItem: React.FC<ServiceItemProps> = ({
   icon,
   title,
-  description,
+  slogan,
   className,
 }) => {
   return (
@@ -23,7 +23,7 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
         <img src={icon} alt={title} className="h-11" /> {/* Changed to img */}
       </div>
       <h3 className="text-xl font-sans text-[#848484] mb-2">{title}</h3>
-      <p className="text-[#848484] leading-relaxed font-sans">{description}</p>
+      <p className="text-[#848484] leading-relaxed font-sans">{slogan}</p>
     </div>
   );
 };
