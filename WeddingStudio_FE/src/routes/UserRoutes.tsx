@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import UserLayout from "../layouts/UserLayout";
 import Home from "../pages/user/home/Home";
 import Album from "../pages/user/album/Album";
+import AlbumListByCover from "../pages/user/album/AlbumListByCover";
 import Services from "../pages/user/services/Services";
 import ServiceDetail from "../pages/user/services/ServiceDetail";
 import Pricing from "../pages/user/pricing/Pricing";
@@ -22,6 +23,7 @@ const UserRoutes: React.FC = () => {
       <Route path="/" element={<UserLayout />}>
         <Route index element={<Home />} />
         <Route path="album" element={<Album />} />
+        <Route path="album/cover/:coverId" element={<AlbumListByCover />} />
         <Route path="services/:id?" element={<Services />} />
         <Route path="services/detail/:newsId" element={<ServiceDetail />} />
         <Route path="pricing" element={<Pricing />} />

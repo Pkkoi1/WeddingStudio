@@ -48,6 +48,7 @@ const ListCover: React.FC = () => {
               location={album.location?.city || "Không xác định"}
               imageUrl={album.coverImage}
               imageAlt={album.description || "Album cover"}
+              type="cover"
             />
           ))}
         </div>

@@ -1,4 +1,5 @@
 import { MapPin, Link } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 interface AlbumItemProps {
   id: string;
@@ -6,6 +7,7 @@ interface AlbumItemProps {
   location: string;
   imageUrl: string;
   imageAlt: string;
+  type?: "cover" | "album";
 }
 
 export default function AlbumItem({
@@ -14,9 +16,17 @@ export default function AlbumItem({
   location,
   imageUrl,
   imageAlt,
+  type = "cover",
 }: AlbumItemProps) {
+  const navigate = useNavigate();
+
   const handleClick = () => {
-    console.log(`Album ${id} clicked!`); // Logic click trong component con
+    if (type === "cover") {
+      navigate(`/album/cover/${id}`);
+    } else {
+      console.log("Album id:", id);
+      // TODO: Xử lý logic khi click vào album
+    }
   };
 
   return (

@@ -229,6 +229,6 @@ export const AlbumAPI = {
   },
   getAlbumsByCover: async (albumCover: string): Promise<Album[]> => {
     const response = await apiClient.get(`/albums/by-cover/${albumCover}`);
-    return response.data.data.albums || [];
+    return response.data || [];
   },
 };
