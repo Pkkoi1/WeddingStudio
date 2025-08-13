@@ -22,6 +22,7 @@ export interface Album {
     | string;
   tags?: string[];
   isPublic: boolean;
+  price: number;
   albumCover?: string;
   createdAt: string;
   updatedAt: string;

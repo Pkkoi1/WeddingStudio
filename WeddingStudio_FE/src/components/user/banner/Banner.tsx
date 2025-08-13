@@ -52,18 +52,19 @@ export default function Banner() {
   }, [currentSlide, nextSlide]); // Re-run effect if currentSlide changes to reset timer
 
   return (
-    <section className="relative w-full h-[600px] overflow-hidden px-[10%] bg-white">
+    <section className="relative w-full overflow-hidden px-[10%] bg-white">
       {bannerImages.map((image, index) => (
         <img
           key={image.src}
           src={image.src || "/placeholder.svg"}
           alt={image.alt}
           className={`transition-opacity duration-1000 w-full ease-in-out ${
-            index === currentSlide ? "opacity-100 " : "opacity-0 absolute px-[10%]"
+            index === currentSlide
+              ? "opacity-100 "
+              : "opacity-0 absolute"
           }`}
         />
       ))}
-      Overlay Content
       {/* Navigation Buttons */}
       <button
         className="absolute left-40 top-1/2 -translate-y-1/2 text-white hover:bg-white/20"

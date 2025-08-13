@@ -91,9 +91,38 @@ const albumController = {
         category,
         location,
         tags,
-        isPublic = true,
+        isPublic,
         albumCover,
+        price,
       } = req.body;
+
+      // Validate all required fields
+      if (
+        !title ||
+        !description ||
+        !coverImage ||
+        !images ||
+        !Array.isArray(images) ||
+        images.length === 0 ||
+        images.some((img) => !img.url || !img.caption) ||
+        !category ||
+        !location ||
+        !tags ||
+        !Array.isArray(tags) ||
+        tags.length === 0 ||
+        tags.some((tag) => typeof tag !== "string" || tag.trim() === "") ||
+        isPublic === undefined ||
+        price === undefined ||
+        typeof price !== "number" ||
+        price < 0 ||
+        !albumCover
+      ) {
+        return res.status(400).json({
+          success: false,
+          message:
+            "Missing or invalid required fields. All fields are required and must be valid.",
+        });
+      }
 
       const albumData = {
         title,
@@ -105,6 +134,7 @@ const albumController = {
         tags,
         isPublic,
         albumCover,
+        price,
       };
 
       const album = new Album(albumData);
@@ -138,18 +168,49 @@ const albumController = {
         tags,
         isPublic,
         albumCover,
+        price,
       } = req.body;
 
-      const updateData = {};
-      if (title !== undefined) updateData.title = title;
-      if (description !== undefined) updateData.description = description;
-      if (coverImage !== undefined) updateData.coverImage = coverImage;
-      if (images !== undefined) updateData.images = images;
-      if (category !== undefined) updateData.category = category;
-      if (location !== undefined) updateData.location = location;
-      if (tags !== undefined) updateData.tags = tags;
-      if (isPublic !== undefined) updateData.isPublic = isPublic;
-      if (albumCover !== undefined) updateData.albumCover = albumCover;
+      // Validate all required fields
+      if (
+        !title ||
+        !description ||
+        !coverImage ||
+        !images ||
+        !Array.isArray(images) ||
+        images.length === 0 ||
+        images.some((img) => !img.url || !img.caption) ||
+        !category ||
+        !location ||
+        !tags ||
+        !Array.isArray(tags) ||
+        tags.length === 0 ||
+        tags.some((tag) => typeof tag !== "string" || tag.trim() === "") ||
+        isPublic === undefined ||
+        price === undefined ||
+        typeof price !== "number" ||
+        price < 0 ||
+        !albumCover
+      ) {
+        return res.status(400).json({
+          success: false,
+          message:
+            "Missing or invalid required fields. All fields are required and must be valid.",
+        });
+      }
+
+      const updateData = {
+        title,
+        description,
+        coverImage,
+        images,
+        category,
+        location,
+        tags,
+        isPublic,
+        albumCover,
+        price,
+      };
 
       const album = await Album.findByIdAndUpdate(req.params.id, updateData, {
         new: true,

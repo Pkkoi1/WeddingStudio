@@ -41,7 +41,7 @@ const MainServices: React.FC = () => {
   }
 
   return (
-    <section className="flex flex-col items-center justify-center w-screen px-[10%] bg-white py-16">
+    <section className="flex flex-col items-center justify-center w-full px-[10%] bg-white py-16">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-5xl font-bold text-gray-800 mb-4 font-amatic tracking-wide">
