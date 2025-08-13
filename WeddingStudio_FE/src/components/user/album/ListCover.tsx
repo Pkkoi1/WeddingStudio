@@ -24,7 +24,7 @@ const ListCover: React.FC = () => {
 
   return (
     <section className="flex flex-col items-center justify-center container mx-auto pb-8 px-[10%] bg-white">
-      <h2 className="text-4xl font-amatic font-bold text-[#d36e6e] my-4 tracking-widest">
+      <h2 className="text-4xl py-4 font-amatic font-bold text-[#d36e6e] my-4 tracking-widest">
         TẤT CẢ SẢN PHẨM
       </h2>
       <div className="bg-white rounded-lg border border-gray-200 p-6 my-4">
