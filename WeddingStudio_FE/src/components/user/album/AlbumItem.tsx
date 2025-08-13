@@ -10,6 +10,16 @@ interface AlbumItemProps {
   type?: "cover" | "album";
 }
 
+function toSlug(str: string) {
+  return str
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "") // remove accents
+    .replace(/[^a-zA-Z0-9\s]/g, "") // remove special chars
+    .trim()
+    .replace(/\s+/g, "-")
+    .toLowerCase();
+}
+
 export default function AlbumItem({
   id,
   title,
@@ -22,10 +32,12 @@ export default function AlbumItem({
 
   const handleClick = () => {
     if (type === "cover") {
-      navigate(`/album/cover/${id}`);
+      const slug = toSlug(title);
+      navigate(`/album/cover/${slug}`, {
+        state: { coverId: id, coverTitle: title },
+      });
     } else {
-      console.log("Album id:", id);
-      // TODO: Xử lý logic khi click vào album
+      navigate(`/album/detail/${id}`);
     }
   };
 
