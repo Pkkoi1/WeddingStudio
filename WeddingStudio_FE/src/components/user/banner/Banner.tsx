@@ -59,21 +59,21 @@ export default function Banner() {
           src={image.src || "/placeholder.svg"}
           alt={image.alt}
           className={`transition-opacity duration-1000 w-full ease-in-out ${
-            index === currentSlide ? "opacity-100" : "opacity-0 absolute"
+            index === currentSlide ? "opacity-100 " : "opacity-0 absolute px-[10%]"
           }`}
         />
       ))}
       Overlay Content
       {/* Navigation Buttons */}
       <button
-        className="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:bg-white/20"
+        className="absolute left-40 top-1/2 -translate-y-1/2 text-white hover:bg-white/20"
         onClick={prevSlide}
         aria-label="Previous slide"
       >
         <ChevronLeft className="h-8 w-8" />
       </button>
       <button
-        className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:bg-white/20"
+        className="absolute right-40 top-1/2 -translate-y-1/2 text-white hover:bg-white/20"
         onClick={nextSlide}
         aria-label="Next slide"
       >
