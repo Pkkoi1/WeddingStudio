@@ -1,9 +1,9 @@
 import { User } from "lucide-react";
 import type { News } from "../../../data/News";
 
-const NewItem: React.FC<News> = ({ title, service, admin, content, _id }) => {
+const NewItem: React.FC<News> = ({ title, admin, content, _id }) => {
   return (
-    <div className="mb-8 bg-white rounded-lg shadow-sm overflow-hidden">
+    <div className="mb-8 bg-white rounded-lg shadow-sm overflow-hidden text-left">
       <div className="md:flex">
         <div className="md:w-1/3">
           <div className="relative h-64 md:h-full">
@@ -24,7 +24,7 @@ const NewItem: React.FC<News> = ({ title, service, admin, content, _id }) => {
             {/* Hiển thị tên đầy đủ của admin */}
           </div>
           <p className="text-gray-600 leading-relaxed mb-4">
-            {service?.description || "Không có mô tả"}{" "}
+            {content[0]?.text || "Không có mô tả"}{" "}
             {/* Use service description */}
           </p>
           <a

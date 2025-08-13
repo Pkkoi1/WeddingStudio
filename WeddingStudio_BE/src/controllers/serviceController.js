@@ -37,13 +37,6 @@ const serviceController = {
     try {
       const service = await Service.findById(req.params.id);
 
-      if (!service || !service.isActive) {
-        return res.status(404).json({
-          success: false,
-          message: "Service not found",
-        });
-      }
-
       res.json({
         success: true,
         data: service,
