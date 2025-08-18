@@ -7,7 +7,6 @@ import VideoGraphic from "../../../components/user/video_graphic/VideoGraphic";
 import AboutStudio from "../../../components/user/about/AboutStudio";
 import PricingTable from "../../../components/user/pricing/PricingTable";
 import ContactMap from "../../../components/user/contact/ContactMap";
-import ScrollToTopButton from "../../../components/common/ScrollToTopButton";
 
 const Home: React.FC = () => {
   const pricingRef = useRef<HTMLDivElement>(null);
@@ -56,7 +55,6 @@ const Home: React.FC = () => {
       <div ref={contactRef}>
         <ContactMap></ContactMap>
       </div>
-      <ScrollToTopButton />
     </div>
   );
 };

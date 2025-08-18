@@ -67,7 +67,7 @@ const MainServices: React.FC = () => {
               dots={false}
               arrows
               draggable
-              className="w-full"
+              className="w-full p-10"
               beforeChange={(_, next) => setCurrentSlide(next)}
               responsive={[
                 { breakpoint: 768, settings: { slidesToShow: 1 } },
@@ -76,7 +76,7 @@ const MainServices: React.FC = () => {
             >
               {groupedServices.map((group, idx) => (
                 <div key={idx}>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8 p-8">
                     {group.map((service, index) => (
                       <ServiceItem
                         key={service._id}
@@ -100,7 +100,7 @@ const MainServices: React.FC = () => {
                     display: "inline-block",
                     height: "12px",
                     borderRadius: "6px",
-                    background: currentSlide === idx ? "#ff9800" : "#e0e0e0",
+                    background: currentSlide === idx ? "#e74c3c" : "#e0e0e0",
                     width: currentSlide === idx ? "32px" : "12px",
                     transition: "all 0.3s",
                     margin: "0 4px",
