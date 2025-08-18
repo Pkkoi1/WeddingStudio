@@ -39,7 +39,7 @@ export default function PricingCard({
               </li>
             ))}
           </ul>
-          <button className="w-full bg-white group-hover:bg-[#c0392b] cursor-pointer group-hover:text-white group-hover:border-white text-[#808080] font-light border-[#808080] border py-2 rounded-full">
+          <button className="w-full bg-white group-hover:bg-[#c0392b] cursor-pointer text-[#808080] group-hover:!text-white group-hover:border-white font-light border-[#808080] border py-2 rounded-full">
             XEM CHI TIẾT
           </button>
         </div>
