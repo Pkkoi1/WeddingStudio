@@ -18,7 +18,7 @@ export default function PricingCard({
             {packageName}
           </h3>
           <div className="relative overflow-visible">
-            <div className="text-white font-bold text-lg py-3 bg-[#808080]">
+            <div className="text-white font-bold text-lg py-3 bg-[#808080] group-hover:opacity-0">
               {price}
             </div>
             <div className="absolute z-10 inset-0 bg-[#d44646] text-white text-center -mx-[10px] py-3 text-lg font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
