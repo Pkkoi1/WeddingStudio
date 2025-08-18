@@ -75,7 +75,10 @@ const AboutStudio: React.FC = () => {
             cho ảnh viện áo cưới Wedding Studio trở thành địa chỉ tin cậy cho
             nhiều bạn trẻ mỗi khi chuẩn bị cưới vợ.
           </p>
-          <button className="cursor-pointer mt-6 px-6 py-3 border-2 border-[#e74c3c] bg-[#e74c3c] text-white rounded-full font-bold hover:bg-[#fff] hover:text-[#e74c3c] hover:border-[#e74c3c] hover:border-2 transition">
+          <button
+            className="cursor-pointer mt-6 px-6 py-3 border-2 border-[#e74c3c] bg-[#e74c3c] !text-white rounded-full font-bold hover:bg-[#fff] hover:!text-[#e74c3c] hover:border-[#e74c3c] hover:border-2 transition"
+            onClick={() => window.open("/about", "_self")}
+          >
             TÌM HIỂU THÊM
           </button>
         </div>
