@@ -43,7 +43,7 @@ const Home: React.FC = () => {
   }, []);
 
   return (
-    <div className="container ">
+    <div className="container">
       <Banner></Banner>
       <MainServices></MainServices>
       <MainAlbum></MainAlbum>

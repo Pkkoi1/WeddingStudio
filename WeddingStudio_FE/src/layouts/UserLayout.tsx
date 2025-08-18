@@ -7,7 +7,7 @@ const UserLayout: React.FC = () => {
   return (
     <>
       <Header />
-      <main className="pt-32">
+      <main className="pt-32 w-full">
         <Outlet />
       </main>
       <ScrollToTopButton />
