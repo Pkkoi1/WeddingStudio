@@ -62,7 +62,7 @@ const PricingTable: React.FC = () => {
   ];
 
   return (
-    <section className="container mx-auto px-[10%] py-16 bg-[#f5f5f5] ">
+    <section className="container mx-auto px-4 lg:px-[10%] py-16 bg-[#f5f5f5] ">
       <div className="text-center mb-12">
         <h2 className="text-4xl font-bold text-gray-800 mb-4 font-amatic">
           BẢNG GIÁ
@@ -77,7 +77,7 @@ const PricingTable: React.FC = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
         {pricingPackages.map((pkg, index) => (
           <PricingCard
             key={index}

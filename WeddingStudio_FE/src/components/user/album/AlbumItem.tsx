@@ -1,4 +1,5 @@
 import { MapPin, Link } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 interface AlbumItemProps {
   id: string;
@@ -6,6 +7,17 @@ interface AlbumItemProps {
   location: string;
   imageUrl: string;
   imageAlt: string;
+  type?: "cover" | "album";
+}
+
+function toSlug(str: string) {
+  return str
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "") // remove accents
+    .replace(/[^a-zA-Z0-9\s]/g, "") // remove special chars
+    .trim()
+    .replace(/\s+/g, "-")
+    .toLowerCase();
 }
 
 export default function AlbumItem({
@@ -14,9 +26,19 @@ export default function AlbumItem({
   location,
   imageUrl,
   imageAlt,
+  type = "cover",
 }: AlbumItemProps) {
+  const navigate = useNavigate();
+
   const handleClick = () => {
-    console.log(`Album ${id} clicked!`); // Logic click trong component con
+    if (type === "cover") {
+      const slug = toSlug(title);
+      navigate(`/album/cover/${slug}`, {
+        state: { coverId: id, coverTitle: title },
+      });
+    } else {
+      navigate(`/album/detail/${id}`);
+    }
   };
 
   return (
@@ -24,7 +46,7 @@ export default function AlbumItem({
       className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer group"
       onClick={handleClick} // Attach the click handler here
     >
-      <div className="relative h-64 w-full overflow-hidden">
+      <div className="relative lg:h-64 h-fit w-full overflow-hidden">
         <img
           src={imageUrl || "/placeholder.svg"}
           alt={imageAlt}

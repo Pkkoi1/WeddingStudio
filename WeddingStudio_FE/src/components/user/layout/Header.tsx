@@ -1,13 +1,15 @@
-import { Facebook, Youtube } from "lucide-react";
+import { Facebook, Youtube, Menu } from "lucide-react";
 import { Link } from "react-router-dom";
 import logo from "../../../../public/logo.webp";
 import { useState, useEffect } from "react";
 import { fetchServices } from "../../../utils/Service";
 import type { Service } from "../../../data/Service";
+import MobileMenu from "./MobileMenu";
 
 export default function Header() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [services, setServices] = useState<Service[]>([]);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const loadServices = async () => {
@@ -39,10 +41,19 @@ export default function Header() {
   };
 
   return (
-    <header className="w-full bg-white shadow-sm fixed top-0 left-0 z-50 px-[10%]">
+    <header className="w-full bg-white shadow-sm fixed top-0 left-0 z-50 lg:px-[10%] px-[2%]">
       <nav className="container mx-auto py-4 flex justify-between items-center">
-        {/* Left menu */}
-        <ul className="flex space-x-6 text-sm font-medium text-gray-700">
+        {/* Nút menu mobile */}
+        <button
+          className="lg:hidden block mr-2 cursor-pointer"
+          onClick={() => setMobileMenuOpen((open) => !open)}
+          aria-label="Open menu"
+        >
+          <Menu size={32} />
+        </button>
+
+        {/* Left menu - chỉ hiện trên desktop */}
+        <ul className="hidden lg:flex space-x-6 text-sm font-medium text-gray-700">
           <li>
             <Link to="/album" className="hover:text-gray-900">
               ALBUM
@@ -58,7 +69,10 @@ export default function Header() {
             onMouseEnter={() => setIsDropdownOpen(true)}
             onMouseLeave={() => setIsDropdownOpen(false)}
           >
-            <Link to="/services" className="hover:text-gray-900 flex items-center">
+            <Link
+              to="/services"
+              className="hover:text-gray-900 flex items-center"
+            >
               DỊCH VỤ <span className="text-xs ml-1">▼</span>
             </Link>
 
@@ -108,26 +122,26 @@ export default function Header() {
           </Link>
         </div>
 
-        {/* Right menu */}
+        {/* Right menu - chỉ hiện trên desktop */}
         <ul className="flex space-x-6 text-sm font-medium text-gray-700">
-          <li>
+          <li className="hidden lg:block">
             <Link to="/about" className="hover:text-gray-900">
               GIỚI THIỆU
             </Link>
           </li>
-          <li>
+          <li className="hidden lg:flex">
             <span className="mx-1">/</span>
           </li>
-          <li>
+          <li className="hidden lg:flex">
             <Link
               to="#"
               onClick={handleContactClick}
-              className="hover:text-gray-900"
+              className="hover:text-gray-900 "
             >
               LIÊN HỆ
             </Link>
           </li>
-          <li className="flex space-x-2 ml-4">
+          <li className="flex space-x-2 lg:ml-4">
             <a href="#" aria-label="Facebook">
               <Facebook size={20} className="text-blue-600" />
             </a>
@@ -137,6 +151,15 @@ export default function Header() {
           </li>
         </ul>
       </nav>
+      {/* Mobile menu overlay */}
+      {mobileMenuOpen && (
+        <MobileMenu
+          services={services}
+          onClose={() => setMobileMenuOpen(false)}
+          handlePricingClick={handlePricingClick}
+          handleContactClick={handleContactClick}
+        />
+      )}
     </header>
   );
 }

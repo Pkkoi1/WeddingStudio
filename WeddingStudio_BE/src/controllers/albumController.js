@@ -1,14 +1,26 @@
 const Album = require("../models/Album");
+const AlbumCover = require("../models/AlbumCover");
 
 const albumController = {
   // GET /api/albums
   getAllAlbums: async (req, res) => {
     try {
-      const { category, page = 1, limit = 12 } = req.query;
+      const { category, albumCover, page = 1, limit = 12 } = req.query;
       const query = { isPublic: true };
 
       if (category) {
         query.category = category;
+      }
+      if (albumCover) {
+        // Nếu albumCover là chuỗi ObjectId, convert sang ObjectId
+        const mongoose = require("mongoose");
+        try {
+          query.albumCover = new mongoose.Types.ObjectId(albumCover);
+        } catch (e) {
+          return res
+            .status(400)
+            .json({ success: false, message: "Invalid albumCover id" });
+        }
       }
 
       const albums = await Album.find(query)
@@ -79,9 +91,38 @@ const albumController = {
         category,
         location,
         tags,
-        isPublic = true,
+        isPublic,
         albumCover,
+        price,
       } = req.body;
+
+      // Validate all required fields
+      if (
+        !title ||
+        !description ||
+        !coverImage ||
+        !images ||
+        !Array.isArray(images) ||
+        images.length === 0 ||
+        images.some((img) => !img.url || !img.caption) ||
+        !category ||
+        !location ||
+        !tags ||
+        !Array.isArray(tags) ||
+        tags.length === 0 ||
+        tags.some((tag) => typeof tag !== "string" || tag.trim() === "") ||
+        isPublic === undefined ||
+        price === undefined ||
+        typeof price !== "number" ||
+        price < 0 ||
+        !albumCover
+      ) {
+        return res.status(400).json({
+          success: false,
+          message:
+            "Missing or invalid required fields. All fields are required and must be valid.",
+        });
+      }
 
       const albumData = {
         title,
@@ -93,6 +134,7 @@ const albumController = {
         tags,
         isPublic,
         albumCover,
+        price,
       };
 
       const album = new Album(albumData);
@@ -126,18 +168,49 @@ const albumController = {
         tags,
         isPublic,
         albumCover,
+        price,
       } = req.body;
 
-      const updateData = {};
-      if (title !== undefined) updateData.title = title;
-      if (description !== undefined) updateData.description = description;
-      if (coverImage !== undefined) updateData.coverImage = coverImage;
-      if (images !== undefined) updateData.images = images;
-      if (category !== undefined) updateData.category = category;
-      if (location !== undefined) updateData.location = location;
-      if (tags !== undefined) updateData.tags = tags;
-      if (isPublic !== undefined) updateData.isPublic = isPublic;
-      if (albumCover !== undefined) updateData.albumCover = albumCover;
+      // Validate all required fields
+      if (
+        !title ||
+        !description ||
+        !coverImage ||
+        !images ||
+        !Array.isArray(images) ||
+        images.length === 0 ||
+        images.some((img) => !img.url || !img.caption) ||
+        !category ||
+        !location ||
+        !tags ||
+        !Array.isArray(tags) ||
+        tags.length === 0 ||
+        tags.some((tag) => typeof tag !== "string" || tag.trim() === "") ||
+        isPublic === undefined ||
+        price === undefined ||
+        typeof price !== "number" ||
+        price < 0 ||
+        !albumCover
+      ) {
+        return res.status(400).json({
+          success: false,
+          message:
+            "Missing or invalid required fields. All fields are required and must be valid.",
+        });
+      }
+
+      const updateData = {
+        title,
+        description,
+        coverImage,
+        images,
+        category,
+        location,
+        tags,
+        isPublic,
+        albumCover,
+        price,
+      };
 
       const album = await Album.findByIdAndUpdate(req.params.id, updateData, {
         new: true,
@@ -185,6 +258,32 @@ const albumController = {
         success: true,
         message: "Album deleted successfully",
       });
+    } catch (error) {
+      res.status(500).json({
+        success: false,
+        message: "Server error",
+        error: error.message,
+      });
+    }
+  },
+
+  // GET /api/albums/by-cover/:albumCover
+  getAlbumsByCover: async (req, res) => {
+    try {
+      const mongoose = require("mongoose");
+      let albumCoverId;
+      try {
+        albumCoverId = new mongoose.Types.ObjectId(req.params.albumCover);
+      } catch (e) {
+        return res
+          .status(400)
+          .json({ success: false, message: "Invalid albumCover id" });
+      }
+      const albums = await Album.find({
+        albumCover: albumCoverId,
+        isPublic: true,
+      }).populate("location", "name city category");
+      res.json({ success: true, data: albums });
     } catch (error) {
       res.status(500).json({
         success: false,

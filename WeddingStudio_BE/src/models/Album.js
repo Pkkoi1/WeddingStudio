@@ -8,7 +8,15 @@ const mongoose = require("mongoose");
  *       type: object
  *       required:
  *         - title
+ *         - description
+ *         - coverImage
+ *         - images
  *         - category
+ *         - location
+ *         - tags
+ *         - isPublic
+ *         - price
+ *         - albumCover
  *       properties:
  *         _id:
  *           type: string
@@ -43,6 +51,12 @@ const mongoose = require("mongoose");
  *         isPublic:
  *           type: boolean
  *           default: true
+ *         price:
+ *           type: number
+ *           description: Album price
+ *         albumCover:
+ *           type: string
+ *           description: Album cover ID
  *         createdAt:
  *           type: string
  *           format: date-time
@@ -60,6 +74,7 @@ const albumSchema = new mongoose.Schema(
     },
     description: {
       type: String,
+      required: true,
       trim: true,
     },
     coverImage: {
@@ -75,6 +90,7 @@ const albumSchema = new mongoose.Schema(
         caption: {
           type: String,
           trim: true,
+          required: true,
         },
       },
     ],
@@ -92,16 +108,23 @@ const albumSchema = new mongoose.Schema(
       {
         type: String,
         trim: true,
+        required: true,
       },
     ],
     isPublic: {
       type: Boolean,
+      required: true,
       default: true,
+    },
+    price: {
+      type: Number,
+      required: true,
+      min: 0,
     },
     albumCover: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "AlbumCover",
-      required: false,
+      required: true,
     },
   },
   {

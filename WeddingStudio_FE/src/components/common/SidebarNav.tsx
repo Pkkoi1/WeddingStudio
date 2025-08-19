@@ -17,7 +17,7 @@ export default function SidebarNav({ title, items }: SidebarNavProps) {
 
   return (
     <div className="bg-white rounded-lg shadow-sm overflow-hidden mb-6">
-      <div className="bg-red-500 text-white px-4 py-3 font-semibold">
+      <div className="bg-[#d44646] text-white px-4 py-3 font-semibold">
         {title}
       </div>
       <div className="py-2">
@@ -44,13 +44,13 @@ export default function SidebarNav({ title, items }: SidebarNavProps) {
             </div>
             {item.hasDropdown && openDropdown === item.label && (
               <div className="bg-gray-50 px-8 py-2">
-                <div className="py-2 text-sm text-gray-600 hover:text-red-500 cursor-pointer">
+                <div className="py-2 text-sm text-gray-600 hover:text-[#d44646] cursor-pointer">
                   Chụp ảnh cưới
                 </div>
-                <div className="py-2 text-sm text-gray-600 hover:text-red-500 cursor-pointer">
+                <div className="py-2 text-sm text-gray-600 hover:text-[#d44646] cursor-pointer">
                   Váy cưới cao cấp
                 </div>
-                <div className="py-2 text-sm text-gray-600 hover:text-red-500 cursor-pointer">
+                <div className="py-2 text-sm text-gray-600 hover:text-[#d44646] cursor-pointer">
                   Thiệp cưới đẹp
                 </div>
               </div>

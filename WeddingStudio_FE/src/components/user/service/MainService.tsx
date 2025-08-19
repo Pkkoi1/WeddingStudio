@@ -1,18 +1,37 @@
 import { Heart } from "lucide-react";
 import ServiceItem from "./ServiceItem";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { fetchServices } from "../../../utils/Service";
 import type { Service } from "../../../data/Service";
 import service1 from "../../../../public/service_4.webp";
 import service2 from "../../../../public/service_5.webp";
 import service3 from "../../../../public/service_6.webp";
+import { Carousel } from "antd";
+import type { CarouselRef } from "antd/es/carousel";
+import "antd/dist/reset.css";
 
 const MainServices: React.FC = () => {
   const [services, setServices] = useState<Service[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const [currentPage, setCurrentPage] = useState<number>(0);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [itemsPerPage, setItemsPerPage] = useState(3); // responsive items per page
+  const carouselRef = useRef<CarouselRef>(null);
 
   const icons = [service1, service2, service3];
+
+  // Responsive items per page
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setItemsPerPage(3);
+      } else {
+        setItemsPerPage(2);
+      }
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     const loadServices = async () => {
@@ -30,20 +49,14 @@ const MainServices: React.FC = () => {
     loadServices();
   }, []);
 
-  const itemsPerPage = 3;
-  const totalPages = Math.ceil(services.length / itemsPerPage);
-
-  const handleDotClick = (page: number) => {
-    setCurrentPage(page);
-  };
-
-  const paginatedServices = services.slice(
-    currentPage * itemsPerPage,
-    currentPage * itemsPerPage + itemsPerPage
-  );
+  // Group services by itemsPerPage
+  const groupedServices = [];
+  for (let i = 0; i < services.length; i += itemsPerPage) {
+    groupedServices.push(services.slice(i, i + itemsPerPage));
+  }
 
   return (
-    <section className="flex flex-col items-center justify-center w-screen px-[10%] bg-white py-16">
+    <section className="flex flex-col items-center justify-center w-screen lg:px-[10%] bg-white py-16">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-5xl font-bold text-gray-800 mb-4 font-amatic tracking-wide">
@@ -63,29 +76,55 @@ const MainServices: React.FC = () => {
         {loading ? (
           <p className="text-center text-gray-500">Đang tải dữ liệu...</p>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 transition-transform duration-500 ease-in-out">
-            {paginatedServices.map((service, index) => (
-              <ServiceItem
-                key={service._id}
-                icon={icons[index % icons.length]} // Cycle through the icons
-                title={service.title}
-                description={service.description}
-              />
-            ))}
-          </div>
+          <>
+            <Carousel
+              ref={carouselRef}
+              dots={false}
+              arrows
+              draggable
+              className="w-full lg:p-10 h-fit"
+              beforeChange={(_, next) => setCurrentSlide(next)}
+            >
+              {groupedServices.map((group, idx) => (
+                <div key={idx}>
+                  <div
+                    className={`grid ${
+                      itemsPerPage === 3 ? "grid-cols-3" : "grid-cols-2 gap-2"
+                    }`}
+                  >
+                    {group.map((service, index) => (
+                      <ServiceItem
+                        key={service._id}
+                        icon={icons[index % icons.length]}
+                        title={service.title}
+                        slogan={service.slogan}
+                      />
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </Carousel>
+            <div className="flex justify-center mt-8">
+              {groupedServices.map((_, idx) => (
+                <span
+                  key={idx}
+                  onClick={() => {
+                    carouselRef.current?.goTo(idx);
+                  }}
+                  style={{
+                    display: "inline-block",
+                    height: "4px",
+                    background: currentSlide === idx ? "#e74c3c" : "#e0e0e0",
+                    width: currentSlide === idx ? "32px" : "12px",
+                    transition: "all 0.3s",
+                    margin: "0 4px",
+                    cursor: "pointer",
+                  }}
+                />
+              ))}
+            </div>
+          </>
         )}
-
-        <div className="flex justify-center mt-12 space-x-4">
-          {Array.from({ length: totalPages }).map((_, index) => (
-            <div
-              key={index}
-              onClick={() => handleDotClick(index)}
-              className={`h-3 w-3 rounded-full cursor-pointer transition-all duration-300 ${
-                currentPage === index ? "bg-orange-500 w-6" : "bg-gray-300 w-3"
-              }`}
-            ></div>
-          ))}
-        </div>
       </div>
     </section>
   );

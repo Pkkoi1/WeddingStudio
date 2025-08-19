@@ -28,10 +28,10 @@ const ContactMap: React.FC = () => {
 
           {/* Contact Information */}
           <div className="relative z-10 flex h-full items-center justify-center">
-            <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16 text-white">
+            <div className="flex flex-col md:flex-row items-center gap-2 lg:gap-16 text-white">
               {/* Address */}
               <div className="flex flex-col items-center text-center">
-                <MapPin className="h-8 w-8 mb-2 text-white" />
+                <MapPin className="h-8 w-8 lg:mb-2 text-white" />
                 <p className="text-sm md:text-base font-medium">
                   Tầng 6 - Tòa nhà Ladeco - 266 Đội Cấn
                 </p>
@@ -39,13 +39,13 @@ const ContactMap: React.FC = () => {
 
               {/* Phone */}
               <div className="flex flex-col items-center text-center">
-                <Phone className="h-8 w-8 mb-2 text-white" />
+                <Phone className="h-8 w-8 lg:mb-2 text-white" />
                 <p className="text-sm md:text-base font-medium">1900 6750</p>
               </div>
 
               {/* Email */}
               <div className="flex flex-col items-center text-center">
-                <Mail className="h-8 w-8 mb-2 text-white" />
+                <Mail className="h-8 w-8 lg:mb-2 text-white" />
                 <p className="text-sm md:text-base font-medium">
                   support@sapo.vn
                 </p>

@@ -25,7 +25,7 @@ const MainAlbum: React.FC = () => {
   }, []);
 
   return (
-    <section className="flex flex-col items-center justify-center container mx-auto py-8 border-t-[0.5px] border-gray-200 px-[10%] bg-white">
+    <section className="flex flex-col items-center justify-center container mx-auto py-8 border-t-[0.5px] border-gray-200 px-4 lg:px-[10%] bg-white">
       <div className="text-center mb-12">
         <h2 className="text-4xl font-bold text-gray-800 mb-4 font-amatic">
           ALBUM TIÊU BIỂU
@@ -43,7 +43,7 @@ const MainAlbum: React.FC = () => {
       {loading ? (
         <p className="text-center text-gray-500">Đang tải dữ liệu...</p>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-3 lg:gap-8 gap-2">
           {albums.map((album) => (
             <AlbumItem
               key={album._id}
@@ -52,6 +52,7 @@ const MainAlbum: React.FC = () => {
               location={album.location?.city || "Không xác định"}
               imageUrl={album.coverImage}
               imageAlt={album.description || "Album cover"}
+              type="cover"
             />
           ))}
         </div>

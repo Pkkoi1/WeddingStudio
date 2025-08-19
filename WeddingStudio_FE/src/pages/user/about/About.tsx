@@ -10,7 +10,7 @@ const About: React.FC = () => {
   return (
     <div className="container bg-white w-screen">
       <Breadcrumb items={breadcrumbItems} />
-      <div className="text-left px-[10%]">
+      <div className="text-left lg:px-[10%] px-4 mt-5 h-full">
         <h1 className="text-lg font-bold my-8">
           Studio ảnh cưới hàng đầu tại Việt Nam
         </h1>
