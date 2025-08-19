@@ -70,32 +70,33 @@ const ServiceDetail: React.FC = () => {
   ];
 
   return (
-    <div className="container w-screen">
+    <div className="container w-full max-w-full px-0">
       <Breadcrumb items={breadcrumbItems} />
-      <div className="flex flex-col lg:flex-row gap-8 bg-white px-[10%] py-[2%] text-left">
-        <div className="lg:w-1/4">
+      <div className="flex flex-col lg:flex-row gap-4 md:gap-8 bg-white px-2 md:px-4 lg:px-[10%] py-4 md:py-[2%] text-left">
+        {/* Sidebar for large screens */}
+        <div className="hidden lg:block lg:w-1/4">
           <SidebarNav title="DỊCH VỤ" items={serviceItems} />
           <SidebarNav title="THƯ VIỆN" items={galleryItems} />
         </div>
-        <div className="lg:w-3/4">
+        {/* Main content */}
+        <div className="w-full lg:w-3/4">
           {news ? (
             <div>
-              <h1 className="text-4xl font-amatic text-red-500 mb-4">
+              <h1 className="text-2xl md:text-3xl lg:text-4xl font-amatic text-red-500 mb-4">
                 {news.title}
               </h1>
               <div
-                className="text-gray-700 mb-6"
+                className="text-gray-700 mb-6 text-base md:text-lg"
                 style={{ whiteSpace: "pre-line" }}
               >
                 {news.content?.[0]?.text}
               </div>
               {news.content?.[0]?.img && (
-                <div className="flex justify-center">
+                <div className="flex justify-center max-w-[600px]">
                   <img
                     src={news.content[0].img}
                     alt={news.title}
                     className="max-w-full h-auto rounded shadow"
-                    style={{ maxWidth: 600 }}
                   />
                 </div>
               )}
@@ -107,6 +108,11 @@ const ServiceDetail: React.FC = () => {
             <div>Đang tải...</div>
           )}
         </div>
+      </div>
+      {/* Sidebar for mobile/tablet */}
+      <div className="block lg:hidden px-2 md:px-4">
+        <SidebarNav title="DỊCH VỤ" items={serviceItems} />
+        <SidebarNav title="THƯ VIỆN" items={galleryItems} />
       </div>
     </div>
   );

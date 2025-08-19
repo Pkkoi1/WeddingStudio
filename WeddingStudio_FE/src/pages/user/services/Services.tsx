@@ -51,13 +51,17 @@ const Services: React.FC = () => {
   return (
     <div className="container w-screen">
       <Breadcrumb items={breadcrumbItems} />
-      <div className="flex flex-col lg:flex-row gap-8 bg-white px-[10%] py-[2%]">
-        <div className="lg:w-1/4">
+      <div className="flex w-screen flex-col lg:flex-row gap-8 bg-white px-4 lg:px-[10%] py-[2%]">
+        <div className="hidden lg:block lg:w-1/4">
           <SidebarNav title="DỊCH VỤ" items={serviceItems} />
           <SidebarNav title="THƯ VIỆN" items={galleryItems} />
         </div>
         <div className="lg:w-3/4">
           <NewsSection service={service} />
+        </div>
+        <div className="lg:hidden">
+          <SidebarNav title="DỊCH VỤ" items={serviceItems} />
+          <SidebarNav title="THƯ VIỆN" items={galleryItems} />
         </div>
       </div>
     </div>
