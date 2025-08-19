@@ -11,7 +11,7 @@ export default function PricingCard({
   features,
 }: PricingCardProps) {
   return (
-    <div className="px-5">
+    <div className="lg:px-5">
       <div className="bg-white rounded-lg shadow-md overflow-visible hover:shadow-lg transition-shadow duration-300 group">
         <div className="text-center border-b">
           <h3 className="text-xl font-mono text-gray-800 m-4 group-hover:text-[#c0392b]">
@@ -21,7 +21,7 @@ export default function PricingCard({
             <div className="text-white font-bold text-lg py-3 bg-[#808080] group-hover:opacity-0">
               {price}
             </div>
-            <div className="absolute z-10 inset-0 bg-[#d44646] text-white text-center -mx-[10px] py-3 text-lg font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <div className="absolute z-10 inset-0 bg-[#d44646] text-white text-center -mx-[10px] py-3 text-lg font-bold opacity-100 lg:opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               {price}
               <div className="absolute bottom-[-10px] left-0 w-0 h-0 border-t-[10px] border-t-[#000] border-l-[10px] border-l-transparent"></div>
               <div className="absolute bottom-[-10px] right-0 w-0 h-0 border-t-[10px] border-t-[#000] border-r-[10px] border-r-transparent"></div>
@@ -39,7 +39,7 @@ export default function PricingCard({
               </li>
             ))}
           </ul>
-          <button className="w-full bg-white group-hover:bg-[#c0392b] cursor-pointer text-[#808080] group-hover:!text-white group-hover:border-white font-light border-[#808080] border py-2 rounded-full">
+          <button className="w-full lg:bg-white bg-[#c0392b] group-hover:bg-[#c0392b] cursor-pointer !text-white lg:!text-[#808080]  group-hover:!text-white group-hover:border-white font-light border-[#808080] lg:border py-2 rounded-full">
             XEM CHI TIẾT
           </button>
         </div>
