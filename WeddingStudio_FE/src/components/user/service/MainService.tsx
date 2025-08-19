@@ -14,9 +14,24 @@ const MainServices: React.FC = () => {
   const [services, setServices] = useState<Service[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [itemsPerPage, setItemsPerPage] = useState(3); // responsive items per page
   const carouselRef = useRef<CarouselRef>(null);
 
   const icons = [service1, service2, service3];
+
+  // Responsive items per page
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setItemsPerPage(3);
+      } else {
+        setItemsPerPage(2);
+      }
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     const loadServices = async () => {
@@ -34,14 +49,14 @@ const MainServices: React.FC = () => {
     loadServices();
   }, []);
 
-  const itemsPerPage = 3;
+  // Group services by itemsPerPage
   const groupedServices = [];
   for (let i = 0; i < services.length; i += itemsPerPage) {
     groupedServices.push(services.slice(i, i + itemsPerPage));
   }
 
   return (
-    <section className="flex flex-col items-center justify-center w-full px-[10%] bg-white py-16">
+    <section className="flex flex-col items-center justify-center w-screen lg:px-[10%] bg-white py-16">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-5xl font-bold text-gray-800 mb-4 font-amatic tracking-wide">
@@ -67,16 +82,16 @@ const MainServices: React.FC = () => {
               dots={false}
               arrows
               draggable
-              className="w-full p-10"
+              className="w-full lg:p-10 h-fit"
               beforeChange={(_, next) => setCurrentSlide(next)}
-              responsive={[
-                { breakpoint: 768, settings: { slidesToShow: 1 } },
-                { breakpoint: 1024, settings: { slidesToShow: 3 } },
-              ]}
             >
               {groupedServices.map((group, idx) => (
                 <div key={idx}>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8 p-8">
+                  <div
+                    className={`grid ${
+                      itemsPerPage === 3 ? "grid-cols-3" : "grid-cols-2 gap-2"
+                    }`}
+                  >
                     {group.map((service, index) => (
                       <ServiceItem
                         key={service._id}
@@ -98,8 +113,7 @@ const MainServices: React.FC = () => {
                   }}
                   style={{
                     display: "inline-block",
-                    height: "12px",
-                    borderRadius: "6px",
+                    height: "4px",
                     background: currentSlide === idx ? "#e74c3c" : "#e0e0e0",
                     width: currentSlide === idx ? "32px" : "12px",
                     transition: "all 0.3s",
