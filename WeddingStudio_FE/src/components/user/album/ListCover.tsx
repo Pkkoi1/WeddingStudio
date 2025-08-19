@@ -23,7 +23,7 @@ const ListCover: React.FC = () => {
   }, []);
 
   return (
-    <section className="flex flex-col items-center justify-center container mx-auto pb-8 px-[10%] bg-white">
+    <section className="flex flex-col items-center justify-center container mx-auto pb-8 px-4 lg:px-[10%] bg-white">
       <h2 className="text-4xl py-4 font-amatic font-bold text-[#d36e6e] my-4 tracking-widest">
         TẤT CẢ SẢN PHẨM
       </h2>
@@ -39,7 +39,7 @@ const ListCover: React.FC = () => {
       {loading ? (
         <p className="text-center text-gray-500">Đang tải dữ liệu...</p>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-2  lg:grid-cols-3 gap-8">
           {albums.map((album) => (
             <AlbumItem
               key={album._id}

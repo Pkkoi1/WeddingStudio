@@ -6,7 +6,7 @@ interface AlbumCollectionProps {
 
 const AlbumCollection: React.FC<AlbumCollectionProps> = ({ images }) => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    <div className="grid grid-cols-2  md:grid-cols-3 gap-2 lg:gap-6">
       {images.map((img, idx) => (
         <div
           key={idx}
@@ -15,7 +15,7 @@ const AlbumCollection: React.FC<AlbumCollectionProps> = ({ images }) => {
           <img
             src={img.url}
             alt={img.caption || `Ảnh ${idx + 1}`}
-            className="w-full h-64 object-cover"
+            className="w-full lg:h-64 object-cover"
           />
         </div>
       ))}

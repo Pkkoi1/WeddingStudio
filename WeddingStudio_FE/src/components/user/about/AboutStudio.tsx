@@ -41,7 +41,7 @@ const AboutStudio: React.FC = () => {
       </div>
 
       {/* Team Members */}
-      <div className="flex justify-center space-x-16 mb-16">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
         {teamMembers.map((member, index) => (
           <TeamMember
             key={index}
@@ -55,14 +55,14 @@ const AboutStudio: React.FC = () => {
 
       {/* About Content */}
       <div
-        className="grid grid-cols-1 lg:grid-cols-2 items-center"
+        className="grid grid-cols-1 lg:grid-cols-2 items-center rounded-lg overflow-hidden"
         style={{
           background: "url('public/bg-about.png') no-repeat center center",
           backgroundSize: "cover",
         }}
       >
-        <div className="relative h-[450px] rounded-lg overflow-hidden"></div>
-        <div className="space-y-4 pr-[30%] pt-28 text-left">
+        <div className="relative h-[220px] sm:h-[300px] lg:h-[450px] w-full rounded-lg overflow-hidden"></div>
+        <div className="space-y-4 px-4 sm:px-10 lg:pr-[30%] pt-8 lg:pt-28 text-left">
           <p className="text-white leading-relaxed">
             Wedding Studio luôn được khẳng định là một thương hiệu về dịch vụ
             ảnh cưới và chụp ảnh cưới trọn gói chuyên nghiệp cùng với đội ngũ

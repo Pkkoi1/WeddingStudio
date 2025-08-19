@@ -47,7 +47,7 @@ const AlbumDetail: React.FC = () => {
           { label: album.title },
         ]}
       />
-      <section className="container mx-auto px-[10%] py-8 w-screen bg-white">
+      <section className="container mx-auto px-4 lg:px-[10%] py-8 w-screen bg-white">
         <h1 className="text-3xl font-amatic font-bold text-[#d36e6e] text-center mb-2 uppercase tracking-widest">
           {album.title}
         </h1>
