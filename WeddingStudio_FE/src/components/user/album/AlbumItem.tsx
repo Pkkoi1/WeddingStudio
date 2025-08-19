@@ -46,7 +46,7 @@ export default function AlbumItem({
       className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer group"
       onClick={handleClick} // Attach the click handler here
     >
-      <div className="relative h-64 w-full overflow-hidden">
+      <div className="relative lg:h-64 h-fit w-full overflow-hidden">
         <img
           src={imageUrl || "/placeholder.svg"}
           alt={imageAlt}

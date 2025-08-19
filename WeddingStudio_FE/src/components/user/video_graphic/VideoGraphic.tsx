@@ -24,7 +24,7 @@ export default function VideoGraphic() {
   ];
 
   return (
-    <section className="relative py-16 bg-cover bg-center px-[10%] ">
+    <section className="relative py-16 bg-cover bg-center lg:px-[10%] ">
       {/* Marble texture overlay */}
       <div className="absolute inset-0 opacity-30" />
 
@@ -44,7 +44,7 @@ export default function VideoGraphic() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
           {videos.map((video) => (
             <VideoItem
               key={video.id}

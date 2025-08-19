@@ -15,9 +15,13 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
 }) => {
   return (
     <div
-      className={`flex flex-col shadow-[0_4px_24px_0_rgba(0,0,0,0.08),0_1.5px_4px_0_rgba(0,0,0,0.04)] lg:shadow-none items-center text-center p-5 my-2 bg-white cursor-pointer transition-shadow duration-300 max-w-[320px] lg:h-[200px] h-[300px] w-full mx-auto hover:shadow-[0_4px_24px_0_rgba(0,0,0,0.08),0_1.5px_4px_0_rgba(0,0,0,0.04)] ${
-        className || ""
-      }`}
+      className={`flex flex-col shadow-[0_4px_24px_0_rgba(0,0,0,0.08),0_1.5px_4px_0_rgba(0,0,0,0.04)] 
+        lg:shadow-none items-center text-center p-5 my-2 bg-white cursor-pointer transition-shadow duration-300 
+        max-w-[320px] 
+        lg:h-[200px] h-[300px] w-full mx-auto 
+        hover:shadow-[0_4px_24px_0_rgba(0,0,0,0.08),0_1.5px_4px_0_rgba(0,0,0,0.04)] ${
+          className || ""
+        }`}
     >
       <div className="mb-4">
         <img src={icon} alt={title} className="h-11" /> {/* Changed to img */}
