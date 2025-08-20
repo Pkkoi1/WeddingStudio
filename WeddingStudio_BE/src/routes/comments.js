@@ -5,7 +5,7 @@ const { auth } = require("../middleware/auth");
 
 /**
  * @swagger
- * /news/{newsId}/comments:
+ * /api/news/{newsId}/comments:
  *   post:
  *     summary: Tạo bình luận cho bản tin
  *     tags: [Comments]
@@ -40,7 +40,7 @@ router.post("/news/:newsId/comments", auth, commentController.createComment);
 
 /**
  * @swagger
- * /news/{newsId}/comments:
+ * /api/news/{newsId}/comments:
  *   get:
  *     summary: Lấy danh sách bình luận của bản tin
  *     tags: [Comments]
@@ -83,7 +83,7 @@ router.get("/news/:newsId/comments", commentController.getCommentsByNews);
 
 /**
  * @swagger
- * /comments/{commentId}:
+ * /api/comments/{commentId}:
  *   delete:
  *     summary: Xóa bình luận
  *     tags: [Comments]

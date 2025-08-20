@@ -1,6 +1,6 @@
 [
   {
-    "news": "60f7b3b3b3b3b3b3b3b3b3e1",
+    "news": { "$oid": "689b0a5f8c38170df155991b" },
     "user": {
       "name": "Nguyen Van A",
       "email": "vana@example.com"
@@ -10,7 +10,7 @@
     "updatedAt": "2025-08-20T10:00:00.000Z"
   },
   {
-    "news": "60f7b3b3b3b3b3b3b3b3b3e2",
+    "news": { "$oid": "689b0a5f8c38170df155991c" },
     "user": {
       "name": "Tran Thi B",
       "email": "tranb@example.com"
@@ -20,7 +20,7 @@
     "updatedAt": "2025-08-20T10:05:00.000Z"
   },
   {
-    "news": "60f7b3b3b3b3b3b3b3b3b3e3",
+    "news": { "$oid": "689b0a5f8c38170df155991d" },
     "user": {
       "name": "Le Van C",
       "email": "levanc@example.com"
@@ -30,7 +30,7 @@
     "updatedAt": "2025-08-20T10:10:00.000Z"
   },
   {
-    "news": "60f7b3b3b3b3b3b3b3b3b3e4",
+    "news": { "$oid": "689b0a5f8c38170df155991e" },
     "user": {
       "name": "Pham D",
       "email": "phamd@example.com"
@@ -40,7 +40,7 @@
     "updatedAt": "2025-08-20T10:15:00.000Z"
   },
   {
-    "news": "60f7b3b3b3b3b3b3b3b3b3e5",
+    "news": { "$oid": "689b0a5f8c38170df155991f" },
     "user": {
       "name": "Hoang E",
       "email": "hoange@example.com"
