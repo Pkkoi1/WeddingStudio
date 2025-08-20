@@ -9,8 +9,6 @@ const { auth } = require("../middleware/auth");
  *   post:
  *     summary: Tạo bình luận cho bản tin
  *     tags: [Comments]
- *     security:
- *       - bearerAuth: []
  *     parameters:
  *       - in: path
  *         name: newsId
@@ -28,15 +26,21 @@ const { auth } = require("../middleware/auth");
  *               content:
  *                 type: string
  *                 example: "Bài viết rất hay!"
+ *               name:
+ *                 type: string
+ *                 example: "Nguyen Van A"
+ *               email:
+ *                 type: string
+ *                 example: "vana@example.com"
  *     responses:
  *       201:
  *         description: Bình luận đã được tạo
  *       404:
  *         description: Không tìm thấy bản tin
- *       401:
- *         description: Chưa xác thực
+ *       400:
+ *         description: Thiếu thông tin bắt buộc
  */
-router.post("/news/:newsId/comments", auth, commentController.createComment);
+router.post("/news/:newsId/comments", commentController.createComment);
 
 /**
  * @swagger

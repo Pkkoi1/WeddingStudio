@@ -232,3 +232,42 @@ export const AlbumAPI = {
     return response.data.data || [];
   },
 };
+// Comment API
+export const commentAPI = {
+  // Lấy danh sách bình luận cho 1 news
+  getCommentsByNews: async (newsId: string) => {
+    try {
+      const response = await apiClient.get(`/news/${newsId}/comments`);
+      return response.data;
+    } catch (error) {
+      console.error(`Error fetching comments for news ${newsId}:`, error);
+      throw error;
+    }
+  },
+  // Tạo bình luận mới cho 1 news
+  createComment: async (
+    newsId: string,
+    data: { name: string; email: string; content: string }
+  ) => {
+    try {
+      const response = await apiClient.post(`/news/${newsId}/comments`, data);
+      return response.data;
+    } catch (error) {
+      console.error(`Error creating comment for news ${newsId}:`, error);
+      throw error;
+    }
+  },
+  // Xóa bình luận
+  deleteComment: async (commentId: string, token?: string) => {
+    try {
+      const response = await apiClient.delete(
+        `/comments/${commentId}`,
+        token ? { headers: { Authorization: `Bearer ${token}` } } : undefined
+      );
+      return response.data;
+    } catch (error) {
+      console.error(`Error deleting comment with id ${commentId}:`, error);
+      throw error;
+    }
+  },
+};

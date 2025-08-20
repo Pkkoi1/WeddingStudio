@@ -4,38 +4,26 @@ import Breadcrumb from "../../../components/common/Breadcrumb";
 import { useParams } from "react-router-dom";
 import { fetchNewsById } from "../../../utils/News";
 import type { News } from "../../../data/News";
+import { fetchCommentsByNews, createComment } from "../../../utils/Comment";
+import type { Comment as CommentType } from "../../../utils/Comment";
 import Share from "../../../components/user/communicate/Share";
 import CommentForm from "../../../components/user/communicate/CommentForm";
 import CommentList from "../../../components/user/communicate/CommentList";
 
-
-
-
 const ServiceDetail: React.FC = () => {
   const { newsId } = useParams<{ newsId: string }>();
   const [news, setNews] = useState<News | null>(null);
-  const [comments, setComments] = useState<
-    { name: string; comment: string; createdAt?: string }[]
-  >([]);
+  const [comments, setComments] = useState<CommentType[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
       if (newsId) {
         try {
           const newsData = await fetchNewsById(newsId);
-          // Nếu backend trả về comments, lấy, nếu không thì []
-          setComments(
-            (
-              newsData as {
-                comments?: {
-                  name: string;
-                  comment: string;
-                  createdAt?: string;
-                }[];
-              }
-            ).comments || []
-          );
           setNews(newsData);
+          // Lấy comment từ API mới
+          const commentList = await fetchCommentsByNews(newsId);
+          setComments(commentList);
         } catch (error) {
           setNews(null);
           setComments([]);
@@ -46,19 +34,25 @@ const ServiceDetail: React.FC = () => {
     fetchData();
   }, [newsId]);
 
-  const handleCommentSubmit = (data: {
+  const handleCommentSubmit = async (data: {
     name: string;
     email: string;
     comment: string;
   }) => {
-    setComments([
-      ...comments,
-      {
-        name: data.name,
-        comment: data.comment,
-        createdAt: new Date().toLocaleString(),
-      },
-    ]);
+    if (!newsId) return;
+    try {
+      // Gửi comment lên backend với đủ name, email, content
+      const newComment = await createComment(
+        newsId,
+        data.name,
+        data.email,
+        data.comment
+      );
+      setComments([...comments, newComment]);
+    } catch (error) {
+      // Có thể hiển thị thông báo lỗi ở đây
+      console.error("Error creating comment:", error);
+    }
   };
 
   const breadcrumbItems = [

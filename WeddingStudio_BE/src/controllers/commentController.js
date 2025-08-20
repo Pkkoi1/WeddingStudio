@@ -5,9 +5,7 @@ const News = require("../models/News");
 exports.createComment = async (req, res) => {
   try {
     const { newsId } = req.params;
-    const { content } = req.body;
-    // Lấy tên và email từ req.user
-    const { fullName, email, role } = req.user;
+    const { content, name, email } = req.body;
 
     // Check if news exists
     const news = await News.findById(newsId);
@@ -15,11 +13,17 @@ exports.createComment = async (req, res) => {
       return res.status(404).json({ message: "News not found" });
     }
 
+    if (!name || !email || !content) {
+      return res
+        .status(400)
+        .json({ message: "Name, email và content là bắt buộc" });
+    }
+
     const comment = new Comment({
       news: newsId,
       user: {
-        name: fullName,
-        email: email,
+        name,
+        email,
       },
       content,
     });

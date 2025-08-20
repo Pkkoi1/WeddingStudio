@@ -1,14 +1,20 @@
 import React from "react";
 
-interface Comment {
-  name: string;
-  comment: string;
+
+// Kiểu dữ liệu comment lấy từ backend
+export interface Comment {
+  user: {
+    name: string;
+    email: string;
+  };
+  content: string;
   createdAt?: string;
 }
 
 interface CommentListProps {
   comments: Comment[];
 }
+
 
 const CommentList: React.FC<CommentListProps> = ({ comments }) => (
   <div className="mt-8">
@@ -19,10 +25,10 @@ const CommentList: React.FC<CommentListProps> = ({ comments }) => (
       <ul>
         {comments.map((c, idx) => (
           <li key={idx} className="mb-6 border-b pb-4">
-            <div className="font-semibold text-[#e74c3c]">{c.name}</div>
-            <div className="text-gray-700 mb-1">{c.comment}</div>
+            <div className="font-semibold text-[#e74c3c]">{c.user?.name || "Ẩn danh"}</div>
+            <div className="text-gray-700 mb-1">{c.content}</div>
             {c.createdAt && (
-              <div className="text-xs text-gray-400">{c.createdAt}</div>
+              <div className="text-xs text-gray-400">{new Date(c.createdAt).toLocaleString()}</div>
             )}
           </li>
         ))}
