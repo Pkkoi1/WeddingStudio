@@ -8,20 +8,8 @@ import Share from "../../../components/user/communicate/Share";
 import CommentForm from "../../../components/user/communicate/CommentForm";
 import CommentList from "../../../components/user/communicate/CommentList";
 
-const serviceItems = [
-  { label: "Album", href: "/album" },
-  { label: "Dịch vụ", href: "/dich-vu", hasDropdown: true },
-  { label: "Bảng giá", href: "/bang-gia" },
-  { label: "Giới thiệu", href: "/gioi-thieu" },
-  { label: "Liên hệ", href: "/lien-he" },
-];
 
-const galleryItems = [
-  { label: "Album", href: "/album" },
-  { label: "Dịch vụ", href: "/dich-vu", hasDropdown: true },
-  { label: "Bảng giá", href: "/bang-gia" },
-  { label: "Giới thiệu", href: "/gioi-thieu" },
-];
+
 
 const ServiceDetail: React.FC = () => {
   const { newsId } = useParams<{ newsId: string }>();
@@ -36,7 +24,17 @@ const ServiceDetail: React.FC = () => {
         try {
           const newsData = await fetchNewsById(newsId);
           // Nếu backend trả về comments, lấy, nếu không thì []
-          setComments((newsData as any).comments || []);
+          setComments(
+            (
+              newsData as {
+                comments?: {
+                  name: string;
+                  comment: string;
+                  createdAt?: string;
+                }[];
+              }
+            ).comments || []
+          );
           setNews(newsData);
         } catch (error) {
           setNews(null);
@@ -75,8 +73,7 @@ const ServiceDetail: React.FC = () => {
       <div className="flex flex-col lg:flex-row gap-4 md:gap-8 bg-white px-2 md:px-4 lg:px-[10%] py-4 md:py-[2%] text-left">
         {/* Sidebar for large screens */}
         <div className="hidden lg:block lg:w-1/4">
-          <SidebarNav title="DỊCH VỤ" items={serviceItems} />
-          <SidebarNav title="THƯ VIỆN" items={galleryItems} />
+          <SidebarNav title="DỊCH VỤ" />
         </div>
         {/* Main content */}
         <div className="w-full lg:w-3/4">
@@ -111,8 +108,7 @@ const ServiceDetail: React.FC = () => {
       </div>
       {/* Sidebar for mobile/tablet */}
       <div className="block lg:hidden px-2 md:px-4">
-        <SidebarNav title="DỊCH VỤ" items={serviceItems} />
-        <SidebarNav title="THƯ VIỆN" items={galleryItems} />
+        <SidebarNav title="DỊCH VỤ" />
       </div>
     </div>
   );
