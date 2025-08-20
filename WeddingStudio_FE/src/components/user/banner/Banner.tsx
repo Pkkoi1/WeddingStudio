@@ -34,11 +34,13 @@ export default function Banner() {
         {bannerImages.map((image) => (
           <div key={image.src}>
             <div className="lg:h-full h-fit">
-              <img
-                src={image.src || "/placeholder.svg"}
-                alt={image.alt}
-                className="w-full h-full object-contain"
-              />
+              <a href="/services">
+                <img
+                  src={image.src || "/placeholder.svg"}
+                  alt={image.alt}
+                  className="w-full h-full object-contain cursor-pointer"
+                />
+              </a>
             </div>
           </div>
         ))}

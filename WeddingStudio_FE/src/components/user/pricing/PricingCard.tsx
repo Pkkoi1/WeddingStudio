@@ -1,7 +1,12 @@
+interface Feature {
+  title: string;
+  description: string;
+}
+
 interface PricingCardProps {
   packageName: string;
   price: string;
-  features: string[];
+  features: Feature[];
   isHighlighted?: boolean;
 }
 
@@ -34,8 +39,9 @@ export default function PricingCard({
               <li
                 key={index}
                 className="text-sm text-gray-700 border-t py-3 border-[#f5f5f5] hover:text-[#c0392b] cursor-pointer"
+                title={feature.description}
               >
-                {feature}
+                {feature.title}
               </li>
             ))}
           </ul>

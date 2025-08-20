@@ -29,6 +29,7 @@ const UserRoutes: React.FC = () => {
         <Route path="services/:id?" element={<Services />} />
         <Route path="services/detail/:newsId" element={<ServiceDetail />} />
         <Route path="pricing" element={<Pricing />} />
+        <Route path="pricing/:package" element={<Pricing />} />
         <Route path="about" element={<About />} />
         <Route path="contact" element={<Contact />} />
       </Route>
