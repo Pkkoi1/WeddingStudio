@@ -82,7 +82,7 @@ export default function Pricing() {
                 </ul>
               </div>
               <div className="flex items-center justify-center">
-                <button className="bg-[#e74c3c] hover:bg-[#c0392b] text-white px-8 py-3 text-lg font-semibold rounded-full">
+                <button className="bg-[#e74c3c] cursor-pointer hover:bg-[#c0392b] !text-white px-8 py-3 text-lg font-semibold rounded-full">
                   ĐĂNG KÝ NGAY
                 </button>
               </div>
@@ -98,7 +98,7 @@ export default function Pricing() {
               {currentPackage.features.map((feature, index) => (
                 <div
                   key={index}
-                  className="flex items-start space-x-4 p-4 rounded-lg hover:bg-gray-50 transition-colors"
+                  className="items-center p-4 rounded-lg hover:bg-gray-50 transition-colors"
                 >
                   <div>
                     <h3 className="font-semibold text-gray-800 mb-1">
@@ -123,10 +123,10 @@ export default function Pricing() {
               biệt
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-[#e74c3c] hover:bg-[#c0392b] text-white px-6 py-2 rounded-full">
+              <button className="bg-[#e74c3c] cursor-pointer hover:bg-[#c0392b] !text-white px-6 py-2 rounded-full">
                 GỌI NGAY: 1900 6750
               </button>
-              <button className="border-[#e74c3c] text-[#e74c3c] hover:bg-[#e74c3c] hover:text-white px-6 py-2 rounded-full bg-transparent">
+              <button className="!border-[#e74c3c] border-1 !text-[#e74c3c] hover:bg-[#e74c3c] cursor-pointer hover:!text-white px-6 py-2 rounded-full bg-transparent">
                 NHẮN TIN TƯ VẤN
               </button>
             </div>
