@@ -8,7 +8,7 @@ const About: React.FC = () => {
   ];
 
   return (
-    <div className="container bg-white w-screen">
+    <div className="container h-screen bg-white w-screen">
       <Breadcrumb items={breadcrumbItems} />
       <div className="text-left lg:px-[10%] px-4 mt-5 h-full">
         <h1 className="text-lg font-bold my-8">

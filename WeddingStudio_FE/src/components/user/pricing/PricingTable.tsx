@@ -1,65 +1,14 @@
 import { Heart } from "lucide-react";
 import PricingCard from "./PricingCard";
+import pricingPackages from "../../../data/Pricing";
+import { useNavigate } from "react-router-dom";
 
 const PricingTable: React.FC = () => {
-  const pricingPackages = [
-    {
-      packageName: "GÓI VIP 1",
-      price: "3.850.000 VND",
-      features: [
-        "Tặng Vest cưới",
-        "Tặng vé phim trường",
-        "2 Ảnh phóng 50x75",
-        "1 Ảnh để bàn",
-        "1 Album khổ (20×20)",
-        "1 váy cưới",
-        "Trang điểm tại nhà cô dâu",
-      ],
-      isHighlighted: false,
-    },
-    {
-      packageName: "GÓI VIP 2",
-      price: "5.200.000 VND",
-      features: [
-        "Tặng Vest cưới",
-        "Tặng vé phim trường",
-        "2 Ảnh phóng 60x90",
-        "1 Album 25x25cm",
-        "1 ảnh để bàn",
-        "1 váy cưới",
-        "Trang điểm tại nhà cô dâu",
-      ],
-      isHighlighted: true,
-    },
-    {
-      packageName: "GÓI VIP 3",
-      price: "6.800.000 VND",
-      features: [
-        "Tặng Vest cưới",
-        "Tặng vé phim trường",
-        "2 Ảnh phóng 60x90",
-        "1 Album 25x25cm",
-        "1 ảnh để bàn",
-        "1 váy cưới",
-        "Trang điểm tại nhà cô dâu",
-      ],
-      isHighlighted: false,
-    },
-    {
-      packageName: "GÓI VIP 4",
-      price: "12.800.000 VND",
-      features: [
-        "Tặng Vest cưới",
-        "Tặng vé phim trường",
-        "2 Ảnh phóng 60x90",
-        "1 Album 25x25cm",
-        "1 ảnh để bàn",
-        "1 váy cưới",
-        "Trang điểm tại nhà cô dâu",
-      ],
-      isHighlighted: false,
-    },
-  ];
+  const navigate = useNavigate();
+
+  const handleCardClick = (slug: string) => {
+    navigate(`/pricing/${slug}`);
+  };
 
   return (
     <section className="container mx-auto px-4 lg:px-[10%] py-16 bg-[#f5f5f5] ">
@@ -79,12 +28,17 @@ const PricingTable: React.FC = () => {
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
         {pricingPackages.map((pkg, index) => (
-          <PricingCard
+          <div
             key={index}
-            packageName={pkg.packageName}
-            price={pkg.price}
-            features={pkg.features}
-          />
+            onClick={() => handleCardClick(pkg.slug)}
+            className="cursor-pointer"
+          >
+            <PricingCard
+              packageName={pkg.packageName}
+              price={pkg.price}
+              features={pkg.features}
+            />
+          </div>
         ))}
       </div>
     </section>

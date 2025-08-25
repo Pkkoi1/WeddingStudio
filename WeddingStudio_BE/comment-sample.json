@@ -1,0 +1,52 @@
+[
+  {
+    "news": { "$oid": "689b0a5f8c38170df155991b" },
+    "user": {
+      "name": "Nguyen Van A",
+      "email": "vana@example.com"
+    },
+    "content": "Bài viết rất hữu ích, cảm ơn tác giả!",
+    "createdAt": "2025-08-20T10:00:00.000Z",
+    "updatedAt": "2025-08-20T10:00:00.000Z"
+  },
+  {
+    "news": { "$oid": "689b0a5f8c38170df155991c" },
+    "user": {
+      "name": "Tran Thi B",
+      "email": "tranb@example.com"
+    },
+    "content": "Xu hướng váy cưới năm nay rất đẹp!",
+    "createdAt": "2025-08-20T10:05:00.000Z",
+    "updatedAt": "2025-08-20T10:05:00.000Z"
+  },
+  {
+    "news": { "$oid": "689b0a5f8c38170df155991d" },
+    "user": {
+      "name": "Le Van C",
+      "email": "levanc@example.com"
+    },
+    "content": "Thiệp cưới thiết kế rất tinh tế!",
+    "createdAt": "2025-08-20T10:10:00.000Z",
+    "updatedAt": "2025-08-20T10:10:00.000Z"
+  },
+  {
+    "news": { "$oid": "689b0a5f8c38170df155991e" },
+    "user": {
+      "name": "Pham D",
+      "email": "phamd@example.com"
+    },
+    "content": "Cảm ơn chia sẻ kinh nghiệm tổ chức tiệc cưới!",
+    "createdAt": "2025-08-20T10:15:00.000Z",
+    "updatedAt": "2025-08-20T10:15:00.000Z"
+  },
+  {
+    "news": { "$oid": "689b0a5f8c38170df155991f" },
+    "user": {
+      "name": "Hoang E",
+      "email": "hoange@example.com"
+    },
+    "content": "Bài viết truyền cảm hứng cho ngày cưới!",
+    "createdAt": "2025-08-20T10:20:00.000Z",
+    "updatedAt": "2025-08-20T10:20:00.000Z"
+  }
+]

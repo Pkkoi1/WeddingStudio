@@ -4,40 +4,26 @@ import Breadcrumb from "../../../components/common/Breadcrumb";
 import { useParams } from "react-router-dom";
 import { fetchNewsById } from "../../../utils/News";
 import type { News } from "../../../data/News";
+import { fetchCommentsByNews, createComment } from "../../../utils/Comment";
+import type { Comment as CommentType } from "../../../utils/Comment";
 import Share from "../../../components/user/communicate/Share";
 import CommentForm from "../../../components/user/communicate/CommentForm";
 import CommentList from "../../../components/user/communicate/CommentList";
 
-const serviceItems = [
-  { label: "Album", href: "/album" },
-  { label: "Dịch vụ", href: "/dich-vu", hasDropdown: true },
-  { label: "Bảng giá", href: "/bang-gia" },
-  { label: "Giới thiệu", href: "/gioi-thieu" },
-  { label: "Liên hệ", href: "/lien-he" },
-];
-
-const galleryItems = [
-  { label: "Album", href: "/album" },
-  { label: "Dịch vụ", href: "/dich-vu", hasDropdown: true },
-  { label: "Bảng giá", href: "/bang-gia" },
-  { label: "Giới thiệu", href: "/gioi-thieu" },
-];
-
 const ServiceDetail: React.FC = () => {
   const { newsId } = useParams<{ newsId: string }>();
   const [news, setNews] = useState<News | null>(null);
-  const [comments, setComments] = useState<
-    { name: string; comment: string; createdAt?: string }[]
-  >([]);
+  const [comments, setComments] = useState<CommentType[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
       if (newsId) {
         try {
           const newsData = await fetchNewsById(newsId);
-          // Nếu backend trả về comments, lấy, nếu không thì []
-          setComments((newsData as any).comments || []);
           setNews(newsData);
+          // Lấy comment từ API mới
+          const commentList = await fetchCommentsByNews(newsId);
+          setComments(commentList);
         } catch (error) {
           setNews(null);
           setComments([]);
@@ -48,19 +34,25 @@ const ServiceDetail: React.FC = () => {
     fetchData();
   }, [newsId]);
 
-  const handleCommentSubmit = (data: {
+  const handleCommentSubmit = async (data: {
     name: string;
     email: string;
     comment: string;
   }) => {
-    setComments([
-      ...comments,
-      {
-        name: data.name,
-        comment: data.comment,
-        createdAt: new Date().toLocaleString(),
-      },
-    ]);
+    if (!newsId) return;
+    try {
+      // Gửi comment lên backend với đủ name, email, content
+      const newComment = await createComment(
+        newsId,
+        data.name,
+        data.email,
+        data.comment
+      );
+      setComments([...comments, newComment]);
+    } catch (error) {
+      // Có thể hiển thị thông báo lỗi ở đây
+      console.error("Error creating comment:", error);
+    }
   };
 
   const breadcrumbItems = [
@@ -75,8 +67,7 @@ const ServiceDetail: React.FC = () => {
       <div className="flex flex-col lg:flex-row gap-4 md:gap-8 bg-white px-2 md:px-4 lg:px-[10%] py-4 md:py-[2%] text-left">
         {/* Sidebar for large screens */}
         <div className="hidden lg:block lg:w-1/4">
-          <SidebarNav title="DỊCH VỤ" items={serviceItems} />
-          <SidebarNav title="THƯ VIỆN" items={galleryItems} />
+          <SidebarNav title="DỊCH VỤ" />
         </div>
         {/* Main content */}
         <div className="w-full lg:w-3/4">
@@ -111,8 +102,7 @@ const ServiceDetail: React.FC = () => {
       </div>
       {/* Sidebar for mobile/tablet */}
       <div className="block lg:hidden px-2 md:px-4">
-        <SidebarNav title="DỊCH VỤ" items={serviceItems} />
-        <SidebarNav title="THƯ VIỆN" items={galleryItems} />
+        <SidebarNav title="DỊCH VỤ" />
       </div>
     </div>
   );

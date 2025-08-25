@@ -19,7 +19,9 @@ const albumCoverRoutes = require("./src/routes/albumCovers");
 const bookingRoutes = require("./src/routes/bookings");
 const contactRoutes = require("./src/routes/contacts");
 const locationRoutes = require("./src/routes/locations");
+
 const newsRoutes = require("./src/routes/news");
+const commentRoutes = require("./src/routes/comments");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -39,7 +41,6 @@ app.use(morgan("combined"));
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ extended: true, limit: "10mb" }));
 
-
 // Swagger Documentation
 swaggerSetup(app);
 
@@ -52,7 +53,9 @@ app.use("/api/album-covers", albumCoverRoutes);
 app.use("/api/bookings", bookingRoutes);
 app.use("/api/contacts", contactRoutes);
 app.use("/api/locations", locationRoutes);
+
 app.use("/api/news", newsRoutes);
+app.use("/api", commentRoutes);
 
 // Health check
 app.get("/api/health", (req, res) => {
